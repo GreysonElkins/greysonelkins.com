@@ -1,4 +1,5 @@
 import { RefObject, useRef, useState, useEffect } from 'react'
+import { useInterval } from 'usehooks-ts'
 import keyboard from 'assets/keyboard.png'
 
 import './Header.scss'
@@ -34,21 +35,11 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   const music = useRef<HTMLButtonElement>(null)
   const contact = useRef<HTMLButtonElement>(null)
   const character = useRef<HTMLButtonElement>(null)
-
-  let interval: any = null
-  // where can we import Timer type??
-
-  const maintainMousePress = (action: () => void) => {
-    interval = setInterval(() => {
-      action()
-    }, 150)
-  }
-
-  const releaseMousePress = (action: () => void) => {
-    clearInterval(interval)
-    interval = null
-    action()
-  }
+  const [buttonPressed, setButtonPressed] = useState<null | (() => void)>(null)
+  
+  useInterval(() => {
+    buttonPressed && buttonPressed()
+  }, buttonPressed ? 1000 : null)
 
   return (
     <>
@@ -81,32 +72,42 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
           {
             eventType: 'mousedown',
             ref: space,
-            action: (e, reposition) => maintainMousePress(() => reposition(spaceAnimation)),
+            action: (e, reposition) => setButtonPressed(reposition(spaceAnimation)),
           },
           {
             eventType: 'mousedown',
             ref: left,
-            action: (e, reposition) => maintainMousePress(() => reposition(leftAnimation)),
+            action: (e, reposition) => setButtonPressed(reposition(leftAnimation)),
           },
           {
             eventType: 'mousedown',
             ref: right,
-            action: (e, reposition) => maintainMousePress(() => reposition(rightAnimation)),
+            action: (e, reposition) => setButtonPressed(reposition(rightAnimation)),
           },
           {
             eventType: 'mouseup',
             ref: space,
-            action: (e, reposition) => releaseMousePress(() => reposition(defaultAnimation)),
+            action: (e, reposition) => { 
+              console.log('release')
+              setButtonPressed(null)
+              reposition(defaultAnimation)
+            },
           },
           {
             eventType: 'mouseup',
             ref: right,
-            action: (e, reposition) => releaseMousePress(() => reposition(defaultAnimation)),
+            action: (e, reposition) => { 
+              setButtonPressed(null)
+              reposition(defaultAnimation)
+            },
           },
           {
             eventType: 'mouseup',
             ref: left,
-            action: (e, reposition) => releaseMousePress(() => reposition(defaultAnimation)),
+            action: (e, reposition) => { 
+              setButtonPressed(null)
+              reposition(defaultAnimation)
+            },
           },
         ]}
       />
