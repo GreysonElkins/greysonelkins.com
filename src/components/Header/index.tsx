@@ -28,8 +28,8 @@ const Header: React.FC<PropsWithChildren> = () => {
         </div>
         <nav>
           <button ref={code} onClick={() => console.log('code')}>code</button>
-          <button ref={music} onClick={() => console.log('music')}>code</button>
-          <button ref={contact} onClick={() => console.log('contact')}>code</button>
+          <button ref={music} onClick={() => console.log('music')}>music</button>
+          <button ref={contact} onClick={() => console.log('contact')}>contact</button>
         </nav>
       </header>
       <LilGuy
