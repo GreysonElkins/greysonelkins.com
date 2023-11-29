@@ -1,9 +1,19 @@
-import { PropsWithChildren, createContext } from "react"
+import { PropsWithChildren, createContext, useState } from "react"
 
-const PlayerValue = createContext({})
+import { SpriteSettings } from "types/Sprites"
+import { lilGuySettings } from "components/Characters/LilGuy"
+
+export const PlayerValue = createContext({} as {
+  spriteSettings: SpriteSettings
+  changeSprite: (settings: SpriteSettings) => void
+})
 
 const PlayerContext: React.FC<PropsWithChildren> = ({ children }) => {
-  return <PlayerValue.Provider value={{}}>
+  const [spriteSettings, setSpriteSettings] = useState<SpriteSettings>(lilGuySettings)
+
+  const changeSprite = (settings: SpriteSettings) => setSpriteSettings(settings)
+
+  return <PlayerValue.Provider value={{ spriteSettings, changeSprite }}>
     {children}
   </PlayerValue.Provider>
 } 

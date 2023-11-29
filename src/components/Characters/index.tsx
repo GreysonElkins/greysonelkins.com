@@ -4,19 +4,22 @@ import LilGal, { lilGalSettings } from './LilGal'
 import MrHat, { mrHatSettings } from './ MrHat'
 import Fox, { foxSettings } from './Fox'
 import Satan, { satanSettings } from './Satan'
-import TheBrain from './TheBrain/TheBrain'
+import TheBrain, { theBrainSettings } from './TheBrain/TheBrain'
 import Grumpy, { grumpySettings } from './Grumpy'
+import usePlayer from 'hooks/usePlayer'
 
-import { CharacterProps } from 'types/Sprites'
+import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 import './Characters.scss'
 
 type ElementData = {
   [key: string]: any
   element: React.FC<CharacterProps>,
-  settings: any
+  settings: SpriteSettings
 }
 
 const Characters = () => {
+  const { changeSprite } = usePlayer()
+
   const buttons: { [key: string]: ElementData} = {
     'Lil Guy': { 
       element: LilGuy, 
@@ -48,7 +51,7 @@ const Characters = () => {
     },
     'The Brain': {
       element: TheBrain,
-      settings: spaceRangerSettings
+      settings: theBrainSettings
     }
   }
 
@@ -56,7 +59,10 @@ const Characters = () => {
     Object.keys(buttons).map((k, i) => {
       const Element = buttons[k].element
       return (
-        <button key={`character-${i}`}>
+        <button 
+          key={`character-${i}`} 
+          onClick={() => changeSprite(buttons[k].settings)}
+        >
           <Element disabled />
           {k}
         </button>

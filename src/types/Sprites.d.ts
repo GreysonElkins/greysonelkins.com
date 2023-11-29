@@ -32,3 +32,8 @@ type SpritePositions = {
 type CharacterProps = {
   disabled?: boolean
 }
+
+type SpriteSettings = {
+  params: SpriteProps
+  positions: SpritePositions
+}

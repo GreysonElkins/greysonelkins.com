@@ -2,7 +2,7 @@ import { useRef, useState, PropsWithChildren } from 'react'
 import { useInterval } from 'usehooks-ts'
 
 import useSprite from 'hooks/useSprite'
-import { spaceRangerSettings } from 'components/Characters/SpaceRanger'
+import usePlayer from 'hooks/usePlayer'
 import keyboard from 'assets/keyboard.png'
 
 import './Header.scss'
@@ -18,9 +18,10 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   const contact = useRef<HTMLButtonElement>(null)
   const character = useRef<HTMLButtonElement>(null)
   const [buttonPressed, setButtonPressed] = useState<null | (() => void)>(null)
+  const { spriteSettings } = usePlayer()
   const { sprite, moveLeft, moveRight, click } = useSprite(
-    spaceRangerSettings.params, 
-    spaceRangerSettings.positions, 
+    spriteSettings.params, 
+    spriteSettings.positions, 
   [
     code, music, contact, character 
   ])

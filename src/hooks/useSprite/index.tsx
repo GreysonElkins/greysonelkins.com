@@ -13,10 +13,12 @@ import './useSprite.scss'
 
 const initClickables: Clickables[] = []
 
-interface SpriteUpdate extends Omit<SpriteProps, 'spriteSheet' | 'defaultFrameRow'> {
+interface SpriteUpdate extends Omit<SpriteProps, 'spriteSheet'> {
   frameWidth?: number
   frameHeight?: number
-  currentFrameRow: number
+  currentFrameRow?: number
+  spriteSheet?: string
+  defaultFrameRow?: number
 }
 
 const updateSprite = (state:SpriteProps, update:SpriteUpdate) => {
@@ -37,6 +39,10 @@ const useSprite = (
   const [spriteProps, updateProps] = useReducer(updateSprite, params)
   const [{ x, y }, setPosition] = useState<WindowPosition>({ x: 0, y: 0 })
   const spriteRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    updateProps(params)
+  }, [params])
 
   const moveLeft = useCallback(() => {
     updateProps({ ...positions['LEFT'], isFacingLeft: true, isLooping: true })
