@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { RefObject, useRef } from 'react'
 import keyboard from 'assets/keyboard.png'
 
 import './Header.scss'
@@ -10,34 +10,51 @@ import LilGuy, {
   rightAnimation 
 } from 'components/Character/LilGuy'
 
-const Header: React.FC<PropsWithChildren> = () => {
+type ControlProps = {
+  space: RefObject<HTMLButtonElement>
+  left: RefObject<HTMLButtonElement>
+  right: RefObject<HTMLButtonElement>
+}
+
+const Controls: React.FC<ControlProps> = ({ space, left, right}) => (
+  <div className="Controls">
+    <img id="keys" src={keyboard} alt="greyson-elkins-header" />
+    <button id="spacebar" ref={space} />
+    <button id="left" ref={left} />
+    <button id="right" ref={right}/>
+  </div>
+)
+
+const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   const space = useRef<HTMLButtonElement>(null)
   const left = useRef<HTMLButtonElement>(null)
   const right = useRef<HTMLButtonElement>(null)
   const code = useRef<HTMLButtonElement>(null)
   const music = useRef<HTMLButtonElement>(null)
   const contact = useRef<HTMLButtonElement>(null)
+  const fighter = useRef<HTMLButtonElement>(null)
   return (
     <>
       <header className="Header">
-        <div className="keyboard">
-          <img id="keys" src={keyboard} alt="greyson-elkins-header" />
-          <button id="spacebar" ref={space} />
-          <button id="left" ref={left} />
-          <button id="right" ref={right}/>
-        </div>
+        <Controls space={space} left={left} right={right} />
         <nav>
-          <button ref={code} onClick={() => console.log('code')}>code</button>
-          <button ref={music} onClick={() => console.log('music')}>music</button>
-          <button ref={contact} onClick={() => console.log('contact')}>contact</button>
+          <button ref={fighter} onClick={() => console.log('fighter')}>
+            CHOOSE YOUR FIGHTER
+          </button>
+          <button ref={code} onClick={() => console.log('code')}>
+            code
+          </button>
+          <button ref={music} onClick={() => console.log('music')}>
+            music
+          </button>
+          <button ref={contact} onClick={() => console.log('contact')}>
+            contact
+          </button>
         </nav>
       </header>
+      {children}
       <LilGuy
-        interactingElements={[
-          { elementRef: code },
-          { elementRef: music },
-          { elementRef: contact },
-        ]}
+        interactingElements={[{ elementRef: code }, { elementRef: music }, { elementRef: contact }]}
         externalActions={[
           {
             eventType: 'mousedown',
@@ -71,8 +88,12 @@ const Header: React.FC<PropsWithChildren> = () => {
           },
         ]}
       />
+      <footer className='Footer'>
+        test
+        <Controls space={space} left={left} right={right} />
+      </footer>
     </>
   )
 }
 
-export default Header
+export default HeaderFooter

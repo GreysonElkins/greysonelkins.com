@@ -1,0 +1,99 @@
+@import 'variables.scss';
+
+.Controls {
+  position: relative;
+  #keys {
+    width: 350px;
+    @media (max-width: $sm-break) {
+      width: 100%;
+    }
+  }
+
+  #spacebar, #left, #right {
+    position: absolute;
+    background: none;
+    border: none;
+    height: 48%;
+    bottom: 3px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  #spacebar {
+    width: 48%;
+    left: 18%;
+  }
+  #left, #right {
+    width: 11%;
+  }
+
+  #left {
+    left: 66.5%;
+    width: 11%;
+  }
+
+  #right {
+    left: 89%;
+  }
+}
+
+.Header { 
+  width: 100%;
+  
+  @media (max-width: $sm-break) {
+    align-items: center;
+    .Controls {
+      display: none;
+    }
+  }
+
+  nav {
+    button {
+      color: $bright-accent;
+      background: none;
+      border: solid $bright-accent 4px;
+      font-weight: bold;
+      margin: 0 4px;
+      border-radius: 5px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: 
+        color 400ms, 
+        background 400ms, 
+        border-color 400ms,
+        font-size 400ms,
+        padding 400ms;
+
+      @media (max-width: $med-break) {
+        font-size: 12px;
+        padding: 4px 8px;
+      }
+
+      &:hover {
+        background: $bright-accent;
+        color: $background;
+      }
+      &:active {
+        background: $dark-accent;
+        color: $background;
+        border-color: $dark-accent;
+      }
+    }
+  }
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @media (max-width: $sm-break) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.Footer {
+  @media (min-width: $sm-break) {
+    .Controls {
+      display: none;
+    }
+  }
+}
