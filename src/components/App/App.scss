@@ -1,0 +1,14 @@
+@import 'variables.scss';
+
+.in-progress {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $bright-accent;
+  font-size: 20px;
+  span {
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+}
