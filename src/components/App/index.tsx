@@ -1,5 +1,5 @@
 import HeaderFooter from 'components/HeaderFooter'
-import Choices from 'components/Character/Choices'
+import Choices from 'components/Characters'
 
 import './App.scss'
 
@@ -7,7 +7,7 @@ const App = () =>
   <div className="App">
     <HeaderFooter>
       <main>
-        <Choices />
+        {/* <Choices /> */}
       </main>
     </HeaderFooter>
   </div>

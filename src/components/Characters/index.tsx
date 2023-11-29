@@ -1,4 +1,3 @@
-import Sprite from "../Sprite"
 
 import lilguy from 'assets/LILGUY.png'
 import lilgal from 'assets/LILGAL.png'
@@ -9,12 +8,12 @@ import spaceranger from 'assets/SPACERANGER.png'
 import fox from 'assets/FOX.png'
 import satan from 'assets/SATAN.png'
 
-import './Choices.scss'
+import './Characters.scss'
 
-const Choices = () => {
+const Characters = () => {
   return (
-    <div className="Choices">
-      <button>
+    <div className="Characters">
+      {/* <button>
         <Sprite
           spritesheet={lilguy}
           frames={11}
@@ -101,9 +100,9 @@ const Choices = () => {
           keylength={150}
         />
         The Brain
-      </button>
+      </button> */}
     </div>
   )
 }
 
-export default Choices
+export default Characters
