@@ -1,4 +1,5 @@
 import HeaderFooter from 'components/HeaderFooter'
+import Choices from 'components/Character/Choices'
 
 import './App.scss'
 
@@ -6,9 +7,7 @@ const App = () =>
   <div className="App">
     <HeaderFooter>
       <main>
-        <div className="in-progress">
-          <span>YEAH Yeah yeah</span>, I know - I'm working on it
-        </div>
+        <Choices />
       </main>
     </HeaderFooter>
   </div>

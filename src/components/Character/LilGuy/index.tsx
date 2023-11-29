@@ -3,7 +3,7 @@ import Character from ".."
 
 import { PositionUpdate, CharacterDirection as A, CharacterAction } from "types/Character.d"
 
-import spritesheet from 'assets/Adventurer Sprite Sheet v2.png'
+import spritesheet from 'assets/LILGUY.png'
 
 type Props = {
   externalActions?: Action[]

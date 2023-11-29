@@ -6,3 +6,30 @@ $dark-accent: #D75325;
 
 $med-break: 1250px;
 $sm-break: 875px;
+
+@mixin cta-1 {
+    color: $bright-accent;
+    background: none;
+    border: solid $bright-accent 4px;
+    font-weight: bold;
+    margin: 0 4px;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 
+    color 400ms, 
+    background 400ms, 
+    border-color 400ms,
+    font-size 400ms,
+    padding 400ms;
+
+    &:hover {
+    background: $bright-accent;
+    color: $background;
+    }
+    &:active {
+    background: $dark-accent;
+    color: $background;
+    border-color: $dark-accent;
+    }
+}
