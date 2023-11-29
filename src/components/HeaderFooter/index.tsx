@@ -35,7 +35,20 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   const contact = useRef<HTMLButtonElement>(null)
   const character = useRef<HTMLButtonElement>(null)
 
-  // useEffect(() => setWindowWidth(window.innerWidth), [window.innerWidth])
+  let interval: any = null
+  // where can we import Timer type??
+
+  const maintainMousePress = (action: () => void) => {
+    interval = setInterval(() => {
+      action()
+    }, 150)
+  }
+
+  const releaseMousePress = (action: () => void) => {
+    clearInterval(interval)
+    interval = null
+    action()
+  }
 
   return (
     <>
@@ -68,32 +81,32 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
           {
             eventType: 'mousedown',
             ref: space,
-            action: (e, reposition) => reposition(spaceAnimation),
+            action: (e, reposition) => maintainMousePress(() => reposition(spaceAnimation)),
           },
           {
             eventType: 'mousedown',
             ref: left,
-            action: (e, reposition) => reposition(leftAnimation),
+            action: (e, reposition) => maintainMousePress(() => reposition(leftAnimation)),
           },
           {
             eventType: 'mousedown',
             ref: right,
-            action: (e, reposition) => reposition(rightAnimation),
+            action: (e, reposition) => maintainMousePress(() => reposition(rightAnimation)),
           },
           {
             eventType: 'mouseup',
             ref: space,
-            action: (e, reposition) => reposition(defaultAnimation),
+            action: (e, reposition) => releaseMousePress(() => reposition(defaultAnimation)),
           },
           {
             eventType: 'mouseup',
             ref: right,
-            action: (e, reposition) => reposition(defaultAnimation),
+            action: (e, reposition) => releaseMousePress(() => reposition(defaultAnimation)),
           },
           {
             eventType: 'mouseup',
             ref: left,
-            action: (e, reposition) => reposition(defaultAnimation),
+            action: (e, reposition) => releaseMousePress(() => reposition(defaultAnimation)),
           },
         ]}
       />
