@@ -1,4 +1,4 @@
-import { RefObject, useRef } from 'react'
+import { RefObject, useRef, useState, useEffect } from 'react'
 import keyboard from 'assets/keyboard.png'
 
 import './Header.scss'
@@ -26,20 +26,24 @@ const Controls: React.FC<ControlProps> = ({ space, left, right}) => (
 )
 
 const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
+  // const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
   const space = useRef<HTMLButtonElement>(null)
   const left = useRef<HTMLButtonElement>(null)
   const right = useRef<HTMLButtonElement>(null)
   const code = useRef<HTMLButtonElement>(null)
   const music = useRef<HTMLButtonElement>(null)
   const contact = useRef<HTMLButtonElement>(null)
-  const fighter = useRef<HTMLButtonElement>(null)
+  const character = useRef<HTMLButtonElement>(null)
+
+  // useEffect(() => setWindowWidth(window.innerWidth), [window.innerWidth])
+
   return (
     <>
+      <Controls space={space} left={left} right={right} />
       <header className="Header">
-        <Controls space={space} left={left} right={right} />
         <nav>
-          <button ref={fighter} onClick={() => console.log('fighter')}>
-            CHOOSE YOUR FIGHTER
+          <button ref={character} onClick={() => console.log('character')}>
+            CHOOSE YOUR CHARACTER
           </button>
           <button ref={code} onClick={() => console.log('code')}>
             code
@@ -54,7 +58,12 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
       </header>
       {children}
       <LilGuy
-        interactingElements={[{ elementRef: code }, { elementRef: music }, { elementRef: contact }]}
+        interactingElements={[
+          { elementRef: code },
+          { elementRef: music },
+          { elementRef: contact },
+          { elementRef: character },
+        ]}
         externalActions={[
           {
             eventType: 'mousedown',
@@ -88,10 +97,6 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
           },
         ]}
       />
-      <footer className='Footer'>
-        test
-        <Controls space={space} left={left} right={right} />
-      </footer>
     </>
   )
 }

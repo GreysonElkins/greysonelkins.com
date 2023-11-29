@@ -1,10 +1,25 @@
 @import 'variables.scss';
 
 .Controls {
-  position: relative;
+  position: absolute;
+  left: 0;
+  transition: top 400ms, left 400ms; 
+  @media (max-width: $sm-break) {
+    bottom: 5px;
+    left: 0px;
+  }
+  @media (min-width: $sm-break) {
+    top: 30px;
+    left: 50px;
+  }
+  @media (min-width: $med-break) {
+    top: 30px;
+    left: 150px;
+  }
   #keys {
     width: 350px;
     @media (max-width: $sm-break) {
+      top: auto;
       width: 100%;
     }
   }
@@ -38,13 +53,8 @@
 }
 
 .Header { 
-  width: 100%;
-  
   @media (max-width: $sm-break) {
     align-items: center;
-    .Controls {
-      display: none;
-    }
   }
 
   nav {
@@ -82,18 +92,10 @@
   }
   
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   @media (max-width: $sm-break) {
     display: flex;
     justify-content: center;
-  }
-}
-
-.Footer {
-  @media (min-width: $sm-break) {
-    .Controls {
-      display: none;
-    }
   }
 }
