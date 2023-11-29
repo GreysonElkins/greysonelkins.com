@@ -1,22 +1,7 @@
 import { useState, useEffect } from "react"
 
+import { SpriteProps } from 'types/Sprites.d'
 import './Sprite.scss'
-
-export type WindowPosition = { x: number; y: number }
-
-export type SpriteProps = {
-  [key: string]: string | number | boolean | WindowPosition | undefined
-  spriteSheet: string
-  frameWidth: number
-  frameHeight: number
-  frameCount: number
-  frameSpeed?: number
-  currentFrameRow?: number
-  defaultFrameRow?: number
-  isFacingLeft?: boolean
-  isLooping?: boolean
-  offset?: WindowPosition
-}
 
 const Sprite: React.FC<SpriteProps> = ({
   spriteSheet,

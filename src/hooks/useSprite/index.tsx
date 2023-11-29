@@ -3,28 +3,13 @@ import {
   useState, 
   useRef, 
   useCallback, 
-  useEffect, 
-  RefObject 
+  useEffect
 } from "react"
-import Sprite, { SpriteProps } from "components/Characters/Sprite"
+import Sprite from "components/Characters/Sprite"
 import { elementsOverlap } from "scripts"
 
+import { SpriteProps, WindowPosition, SpritePositions, Clickables } from "types/Sprites.d"
 import './useSprite.scss'
-
-type WindowPosition = { x: number, y: number }
-
-export enum SpriteActions {
-  LEFT = 'LEFT',
-  RIGHT = 'RIGHT',
-//   JUMP = 'JUMP',
-  CLICK = 'CLICK'
-}
-
-type SpritePositions = {
-  [key in keyof typeof SpriteActions]: SpriteUpdate
-}
-
-export type Clickables = RefObject<HTMLButtonElement>
 
 const initClickables: Clickables[] = []
 
@@ -46,7 +31,8 @@ const updateSprite = (state:SpriteProps, update:SpriteUpdate) => {
 const useSprite = (
   params: SpriteProps,
   positions: SpritePositions,
-  clickables = initClickables
+  clickables = initClickables,
+  disabled?: boolean
 ) => {
   const [spriteProps, updateProps] = useReducer(updateSprite, params)
   const [{ x, y }, setPosition] = useState<WindowPosition>({ x: 0, y: 0 })
@@ -91,6 +77,7 @@ const useSprite = (
 
   const onKeyDown = useCallback(
     (event: any) => {
+      if (disabled) return
       switch (event.code) {
         case 'ArrowRight':
           return moveRight()
@@ -102,15 +89,16 @@ const useSprite = (
           return idle()
       }
     },
-    [moveRight, moveLeft, click, idle]
+    [disabled, moveRight, moveLeft, click, idle]
   )
 
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown)
     window.addEventListener('keyup', (event) => {
+      if (disabled) return
       if (event.code !== 'Space') idle()
     })
-  }, [onKeyDown, idle])
+  }, [disabled, onKeyDown, idle])
 
   const sprite = (
     <div className="SpritePosition" ref={spriteRef} style={{ left: x, top: y }}>

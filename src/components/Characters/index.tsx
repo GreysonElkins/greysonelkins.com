@@ -1,106 +1,71 @@
+import SpaceRanger, { spaceRangerSettings } from './SpaceRanger'
+import LilGuy, { lilGuySettings } from './LilGuy'
+import LilGal, { lilGalSettings } from './LilGal'
+import MrHat, { mrHatSettings } from './ MrHat'
+import Fox, { foxSettings } from './Fox'
+import Satan, { satanSettings } from './Satan'
+import TheBrain from './TheBrain/TheBrain'
+import Grumpy, { grumpySettings } from './Grumpy'
 
-import lilguy from 'assets/LILGUY.png'
-import lilgal from 'assets/LILGAL.png'
-import grumpy from 'assets/GRUMPY.png'
-import mrhat from 'assets/MRHAT.png'
-import thebrain from 'assets/BRAIN.png'
-import spaceranger from 'assets/SPACERANGER.png'
-import fox from 'assets/FOX.png'
-import satan from 'assets/SATAN.png'
-
+import { CharacterProps } from 'types/Sprites'
 import './Characters.scss'
 
+type ElementData = {
+  [key: string]: any
+  element: React.FC<CharacterProps>,
+  settings: any
+}
+
 const Characters = () => {
+  const buttons: { [key: string]: ElementData} = {
+    'Lil Guy': { 
+      element: LilGuy, 
+      settings: lilGuySettings
+    },
+    'Lil Gal': {
+      element: LilGal,
+      settings: lilGalSettings
+    },
+    'Mr. Hat': {
+      element: MrHat,
+      settings: mrHatSettings
+    },
+    'A Fox': {
+      element: Fox,
+      settings: foxSettings
+    },
+    'SATAN': {
+      element: Satan,
+      settings: satanSettings
+    },
+    'Grumpy': {
+      element: Grumpy,
+      settings: grumpySettings
+    },
+    'Space Ranger': {
+      element: SpaceRanger,
+      settings: spaceRangerSettings
+    },
+    'The Brain': {
+      element: TheBrain,
+      settings: spaceRangerSettings
+    }
+  }
+
+  const renderButtons = () => 
+    Object.keys(buttons).map((k, i) => {
+      const Element = buttons[k].element
+      return (
+        <button key={`character-${i}`}>
+          <Element disabled />
+          {k}
+        </button>
+      )
+    })
+
   return (
     <div className="Characters">
-      {/* <button>
-        <Sprite
-          spritesheet={lilguy}
-          frames={11}
-          width={64}
-          height={64}
-          offsetY={16}
-          keylength={150}
-        />
-        Lil Guy
-      </button>
-      <button>
-        <Sprite
-          spritesheet={lilgal}
-          frames={6}
-          width={64}
-          height={64}
-          offsetY={13}
-          keylength={150}
-        />
-        Lil Gal
-      </button>
-      <button>
-        <Sprite
-          spritesheet={mrhat}
-          frames={8}
-          width={128}
-          height={60}
-          offsetY={16}
-          keylength={150}
-        />
-        Mr. Hat
-      </button>
-      <button>
-        <Sprite
-          spritesheet={fox}
-          frames={5}
-          width={64}
-          height={64}
-          offsetY={16}
-          keylength={150}
-        />
-        A Fox
-      </button>
-      <button>
-        <Sprite
-          spritesheet={spaceranger}
-          frames={4}
-          width={64}
-          height={60}
-          offsetY={10}
-          keylength={150}
-        />
-        Space Ranger
-      </button>
-      <button>
-        <Sprite
-          spritesheet={grumpy}
-          frames={4}
-          width={64}
-          height={64}
-          offsetY={16}
-          keylength={150}
-        />
-        Grump
-      </button>
-      <button>
-        <Sprite
-          spritesheet={satan}
-          frames={7}
-          width={64}
-          height={64}
-          offsetY={16}
-          keylength={150}
-        />
-        Satan
-      </button>
-      <button>
-        <Sprite
-          spritesheet={thebrain}
-          frames={8}
-          width={64}
-          height={64}
-          // offsetY={16}
-          keylength={150}
-        />
-        The Brain
-      </button> */}
+      {renderButtons()}
     </div>
   )
 }

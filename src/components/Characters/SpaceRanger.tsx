@@ -1,7 +1,9 @@
+import useSprite from "hooks/useSprite"
 import space_ranger from 'assets/SPACERANGER.png'
-import { SpriteActions as A } from 'hooks/useSprite'
 
-const SpaceRanger = {
+import { SpriteActions as A, CharacterProps } from 'types/Sprites.d'
+
+export const spaceRangerSettings = {
   params: {
     spriteSheet: space_ranger,
     frameWidth: 64,
@@ -22,6 +24,13 @@ const SpaceRanger = {
       currentFrameRow: 2,
     },
   },
+}
+
+const SpaceRanger: React.FC<CharacterProps> = ({ disabled }) => {
+  const { params, positions } = spaceRangerSettings
+  const { sprite } = useSprite(params, positions, [], disabled)
+
+  return <div className="Character">{sprite}</div>
 }
 
 export default SpaceRanger

@@ -1,9 +1,8 @@
 import {
   createBrowserRouter,
-  Route,
-  Link,
 } from "react-router-dom"
 import App from "components/App";
+import Characters from "components/Characters";
 
 const routes = createBrowserRouter([
   {
@@ -24,7 +23,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "choose-your-character",
-        element: <>choose</>
+        element: <Characters/>
       }
     ]
   },
