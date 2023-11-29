@@ -1,11 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client';
+import {createRoot} from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom';
 import 'index.scss'
-import App from 'components/App'
+import routes from 'routes';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <App />
-);
+createRoot(document.getElementById('root') as HTMLElement)
+  .render(<RouterProvider router={routes} />)

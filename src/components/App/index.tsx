@@ -1,5 +1,6 @@
 import HeaderFooter from 'components/HeaderFooter'
-import Choices from 'components/Characters'
+import { Outlet } from 'react-router-dom';
+
 
 import './App.scss'
 
@@ -7,7 +8,7 @@ const App = () =>
   <div className="App">
     <HeaderFooter>
       <main>
-        {/* <Choices /> */}
+        <Outlet />
       </main>
     </HeaderFooter>
   </div>

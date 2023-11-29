@@ -1,4 +1,4 @@
-import { RefObject, useRef, useState, PropsWithChildren } from 'react'
+import { useRef, useState, PropsWithChildren } from 'react'
 import { useInterval } from 'usehooks-ts'
 
 import useSprite from 'hooks/useSprite'
@@ -6,6 +6,7 @@ import SpaceRanger from 'components/Characters/CharacterParams/SpaceRanger'
 import keyboard from 'assets/keyboard.png'
 
 import './Header.scss'
+import { Link } from 'react-router-dom'
 
 const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   // const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
@@ -35,18 +36,26 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
       </div>
       <header className="Header">
         <nav>
-          <button ref={character} onClick={() => console.log('character')}>
-            CHOOSE YOUR CHARACTER
-          </button>
-          <button ref={code} onClick={() => console.log('code')}>
-            code
-          </button>
-          <button ref={music} onClick={() => console.log('music')}>
-            music
-          </button>
-          <button ref={contact} onClick={() => console.log('contact')}>
-            contact
-          </button>
+          <Link to="/code">
+            <button ref={code} onClick={() => console.log('code')}>
+              code
+            </button>
+          </Link>
+          <Link to="/music">
+            <button ref={music} onClick={() => console.log('music')}>
+              music
+            </button>
+          </Link>
+          <Link to="/contact">
+            <button ref={contact} onClick={() => console.log('contact')}>
+              contact
+            </button>
+          </Link>
+          <Link to="/choose-your-character">
+            <button ref={character} onClick={() => console.log('character')}>
+              CHOOSE YOUR CHARACTER
+            </button>
+          </Link>
         </nav>
       {sprite}
       </header>
