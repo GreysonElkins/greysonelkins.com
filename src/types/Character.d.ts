@@ -1,3 +1,5 @@
+import { RefObject } from "react"
+
 export type CharacterPosition = {
   [key: string]: any
   spriteSheetRow: number
@@ -17,7 +19,11 @@ export type CharacterAction = {
   isWindowEvent?: boolean
   eventType: string,
   ref?: RefObject<HTMLElement>
-  action: (event: Event, move: Dispatch<PositionUpdate>) => void
+  action: (
+    event: Event, 
+    move: Dispatch<PositionUpdate>, 
+    spriteRef: RefObject<HTMLDivElement>
+  ) => void
 }
 
 export type PositionUpdate = {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useReducer, Reducer, Dispatch, RefObject } from 'react'
+import { useEffect, useRef, useReducer, Reducer } from 'react'
 import Sprite, { Props as SpriteProps } from './Sprite'
 
 import { CharacterPosition, PositionUpdate, CharacterAction } from 'types/Character.d'
@@ -45,14 +45,13 @@ const Character: React.FC<Props> = ({
   useEffect(() => {
     const events = actions.reduce((evs, animation) => {
       const action = (event: Event) => {
-        animation.action(event, reposition)
+        animation.action(event, reposition, sprite)
       }
       if (animation.isWindowEvent) {
         window.addEventListener(animation.eventType, action)
         evs[animation.eventType] = { isWindow: true, action }
       } else {
         const obj = animation.ref || sprite
-        console.log({ obj })
         obj.current?.addEventListener(animation.eventType, action)
         evs[animation.eventType] = { isWindow: false, action }
       }
