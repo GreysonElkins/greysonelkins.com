@@ -74,7 +74,7 @@ const LilGuy:React.FC<Props> = ({ externalActions = [], interactingElements =[] 
       keylength={150}
       defaultPosition={{
         ...defaultAnimation,
-        x: 505,
+        x: 455 < window.innerWidth ? 455 : window.innerWidth - 70,
         y: 23
       }}
       actions={[
