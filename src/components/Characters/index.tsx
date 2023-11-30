@@ -17,7 +17,7 @@ type ElementData = {
   settings: SpriteSettings
 }
 
-const Characters = () => {
+const Characters: React.FC<{ onSelect?: () => void }> = ({ onSelect }) => {
   const { changeSprite } = usePlayer()
 
   const buttons: { [key: string]: ElementData} = {
@@ -45,7 +45,7 @@ const Characters = () => {
       element: Grumpy,
       settings: grumpySettings
     },
-    'Space Ranger': {
+    'Space Man': {
       element: SpaceRanger,
       settings: spaceRangerSettings
     },
@@ -61,7 +61,10 @@ const Characters = () => {
       return (
         <button 
           key={`character-${i}`} 
-          onClick={() => changeSprite(buttons[k].settings)}
+          onClick={() => {
+            changeSprite(buttons[k].settings)
+            onSelect && onSelect()
+          }}
         >
           <Element disabled />
           {k}

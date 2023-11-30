@@ -1,0 +1,31 @@
+@import "variables.scss";
+
+.Characters {
+    position: absolute;
+    transition: top 400ms, bottom 400ms;
+}
+
+.PlayerSettings-menu-closed {
+   .Characters {
+   @media (min-width: $med-break) {
+      top: -150px;
+   }
+   @media (max-width: $med-break) {
+      bottom: -150px;
+   }
+    right: 10px;
+   }
+}
+
+.PlayerSettings-menu-open {
+   .Characters {
+   @media (min-width: $med-break) {
+      top: 125px;
+   }
+   @media (max-width: $med-break) {
+      bottom: 150px;
+   }
+   //  top: 125px;
+    right: 10px;
+   }
+}

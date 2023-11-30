@@ -8,16 +8,19 @@
   margin: 0 auto;
   button {
     @include cta-1;
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
     white-space: nowrap;
     margin: 10px;
+    border-width: 3px;
 
     .SpritePosition {
       position: relative;
+      margin-top: -20px;
+      margin-bottom: 5px;
     }
   }
 

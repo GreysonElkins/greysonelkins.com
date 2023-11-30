@@ -1,32 +1,26 @@
 import {
   createBrowserRouter,
 } from "react-router-dom"
-import App from "components/App";
-import UnderConstruction from "components/UnderConstruction";
-import Characters from "components/Characters";
+import App from "components/App"
 
 const routes = createBrowserRouter([
   {
-    path: '/',
+    path: '*',
     element: <App />,
-    children: [
-      {
-        path: 'code',
-        element: <UnderConstruction />,
-      },
-      {
-        path: 'music',
-        element: <UnderConstruction />,
-      },
-      {
-        path: 'contact',
-        element: <UnderConstruction />,
-      },
-      {
-        path: 'choose-your-character',
-        element: <Characters />,
-      },
-    ],
+    // children: [
+    //   {
+    //     path: 'code',
+    //     element: <Code />,
+    //   },
+    //   {
+    //     path: 'music',
+    //     element: <UnderConstruction />,
+    //   },
+    //   {
+    //     path: 'contact',
+    //     element: <UnderConstruction />,
+    //   }
+    // ],
   },
   {
     path: 'about',

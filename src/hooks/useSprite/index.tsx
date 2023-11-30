@@ -34,10 +34,11 @@ const useSprite = (
   params: SpriteProps,
   positions: SpritePositions,
   clickables = initClickables,
-  disabled?: boolean
+  disabled?: boolean,
+  defaultPosition = { x: 0, y: 0 } as WindowPosition,
 ) => {
   const [spriteProps, updateProps] = useReducer(updateSprite, params)
-  const [{ x, y }, setPosition] = useState<WindowPosition>({ x: 0, y: 0 })
+  const [{ x, y }, setPosition] = useState<WindowPosition>(defaultPosition)
   const spriteRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

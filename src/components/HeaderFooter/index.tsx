@@ -3,7 +3,7 @@ import { useInterval } from 'usehooks-ts'
 
 import useSprite from 'hooks/useSprite'
 import usePlayer from 'hooks/usePlayer'
-import keyboard from 'assets/keyboard.png'
+import keyboard from 'assets/keyboard2.png'
 
 import './Header.scss'
 import { Link } from 'react-router-dom'
@@ -18,13 +18,15 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   const contact = useRef<HTMLButtonElement>(null)
   const character = useRef<HTMLButtonElement>(null)
   const [buttonPressed, setButtonPressed] = useState<null | (() => void)>(null)
-  const { spriteSettings } = usePlayer()
+  const { spriteSettings, toggleMenuIsOpen } = usePlayer()
   const { sprite, moveLeft, moveRight, click } = useSprite(
     spriteSettings.params, 
     spriteSettings.positions, 
   [
     code, music, contact, character 
-  ])
+  ], false,
+  { x: 370, y: 44 }
+  )
   
   useInterval(() => {
     buttonPressed && buttonPressed()
@@ -33,6 +35,7 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   return (
     <>
       <div className="Controls">
+        <h1>Greyson Elkins.COM</h1>
         <img id="keys" src={keyboard} alt="greyson-elkins-header" />
         <button id="spacebar" ref={space} onClick={click} />
         <button id="left" ref={left} onClick={moveLeft} />
@@ -41,25 +44,27 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
       <header className="Header">
         <nav>
           <Link to="/code">
-            <button ref={code} onClick={() => console.log('code')}>
+            <button ref={code}>
               code
             </button>
           </Link>
           <Link to="/music">
-            <button ref={music} onClick={() => console.log('music')}>
+            <button ref={music}>
               music
             </button>
           </Link>
           <Link to="/contact">
-            <button ref={contact} onClick={() => console.log('contact')}>
+            <button ref={contact}>
               contact
             </button>
           </Link>
-          <Link to="/choose-your-character">
-            <button ref={character} onClick={() => console.log('character')}>
-              CHOOSE YOUR CHARACTER
-            </button>
-          </Link>
+          <button 
+            ref={character} 
+            onClick={toggleMenuIsOpen}
+          >
+            CHOOSE YOUR CHARACTER
+          </button>
+          
         </nav>
       {sprite}
       </header>

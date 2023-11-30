@@ -1,26 +1,49 @@
 @import 'variables.scss';
 
 .Controls {
+  z-index: 20;
+  h1 {
+    position:absolute;
+    top: 0;
+    font-family: 'Yellowtail', cursive;
+    color: $accent-1;
+    margin: 0;
+
+    @media (max-width: $med-break) {  
+      font-size: 26px;
+    }
+
+    @media (max-width: $sm-break) {
+      font-size: 30px;
+    }
+  }
+
   position: absolute;
   left: 0;
+  width: min-content;
+  // bottom: 0;
   transition: top 400ms, left 400ms; 
-  @media (max-width: $sm-break) {
+  @media (max-width: $med-break) {
     bottom: 5px;
-    left: 0px;
-  }
-  @media (min-width: $sm-break) {
-    top: 30px;
-    left: 50px;
+    left: 20px;
   }
   @media (min-width: $med-break) {
-    top: 30px;
-    left: 150px;
+    top: 10px;
+    left: 20px;
   }
+
+  @media (max-width: $sm-break) {
+    left: 5vw;
+  }
+
   #keys {
     width: 350px;
-    @media (max-width: $sm-break) {
-      top: auto;
-      width: 100%;
+    @media (max-width: $med-break) {
+      width: 300px;
+    }
+    @media (max-width: $xs-break) {
+      // top: auto;
+      width: 90vw;
     }
   }
 
@@ -28,27 +51,26 @@
     position: absolute;
     background: none;
     border: none;
-    height: 48%;
-    bottom: 3px;
+    height: 41%;
+    bottom: 9px;
     border-radius: 8px;
     cursor: pointer;
   }
   
   #spacebar {
-    width: 48%;
-    left: 18%;
+    width: 56.5%;
+    left: 5px;
   }
   #left, #right {
-    width: 11%;
+    width: 12.5%;
   }
 
   #left {
-    left: 66.5%;
-    width: 11%;
+    left: 59%;
   }
 
   #right {
-    left: 89%;
+    left: 86%;
   }
 }
 
@@ -56,15 +78,24 @@
   @media (max-width: $sm-break) {
     align-items: center;
   }
-
+  position: absolute;
+  // top: 0;
+  background-image: $black-tile;
+  height: 118px;
+  width: 100vw;
+  border-bottom: 1px solid $accent-1;
+  align-items: flex-end;
   margin-bottom: 100px;
+  z-index: 10;
 
   nav {
+    padding: 10px 20px;
     button {
       @include cta-1;
 
+      padding: 6px 10px;
       @media (max-width: $med-break) {
-        font-size: 12px;
+        font-size: 10px;
         padding: 4px 8px;
       }
 
@@ -73,9 +104,28 @@
   
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
-  @media (max-width: $sm-break) {
+
+  @media (min-width: $med-break) {
+    top: 0;
+  }
+
+  @media (max-width: $med-break) {
+    bottom: -1px;
+    margin-bottom: 0;
+    border-bottom: none;
+    border-top: 1px solid $accent-1;
+    align-items: flex-end;
+  }
+  @media (max-width: $xs-break) {
     display: flex;
     justify-content: center;
+    height: 150px;
+    padding: 0;
+    align-items: flex-start;
+
+    nav {
+      padding: 0;
+      padding-top: 6px;
+      }
+    }
   }
-}

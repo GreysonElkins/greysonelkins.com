@@ -1,0 +1,53 @@
+@import 'variables.scss';
+
+.resume {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  padding-top: 130px;
+  width: 35vw;
+  transition: left 400ms;
+  border-radius: 0;
+  
+  @media (max-width: $med-break) {
+    padding-top: 0px;
+  }
+
+  &.open {
+    left: 0px;
+  }
+
+  &.closed {
+    left: -500px;
+  }
+}
+
+.techBadges {
+  position: absolute;
+  left: 42vw;
+  margin-right: 20px;
+  transition: bottom 400ms, top 400ms;
+
+  &.open {
+    @media (min-width: $med-break) {
+      bottom: 20px;
+    }
+    @media (max-width: $med-break) {
+      top: 20px;
+    }
+  }
+  
+  &.closed {
+    @media (min-width: $med-break) {
+      bottom: -500px;
+    }
+    @media (max-width: $med-break) {
+      top: -500px;
+    }
+  }
+
+  img {
+    margin: 2px 3px;
+  }
+}

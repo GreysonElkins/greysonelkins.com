@@ -1,6 +1,7 @@
 @import 'variables.scss';
 
 body {
+  background-image: $black-tile-2;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -9,10 +10,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $background;
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.Card {
+  h2 {
+    border-bottom: 2px solid $accent-2;
+    font-family: 'Brexter';
+    font-size: 2vw;
+    span {
+      font-size: 3vw;
+      font-family: 'Yellowtail'
+    }
+  }
+
+  h3 {
+    font-family: 'Brexter';
+    font-size: 1vw;
+  }
+
+  background-image: $white-tile;
+  padding: 10px 30px;
+  color: $black;
+  width: min-content;
+  white-space: nowrap;
+  border-radius: 5px;
 }
