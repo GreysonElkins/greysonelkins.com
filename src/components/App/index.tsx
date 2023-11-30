@@ -1,6 +1,6 @@
 import HeaderFooter from 'components/HeaderFooter'
-import { Outlet } from 'react-router-dom';
-import PlayerContext from 'context/Player';
+import PlayerContext from 'context/Player'
+import Music from 'views/music';
 
 import './App.scss'
 import Code from 'views/code';
@@ -11,6 +11,7 @@ const App = () =>
       <HeaderFooter>
         <main>
           <Code />
+          <Music />
         </main>
       </HeaderFooter>
     </PlayerContext>

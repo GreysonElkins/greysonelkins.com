@@ -18,15 +18,18 @@ code {
     monospace;
 }
 
+h2 {
+  font-family: 'Brexter';
+  font-size: 2vw;
+  span {
+    font-size: 3vw;
+    font-family: 'Yellowtail'
+  }
+}
+
 .Card {
   h2 {
     border-bottom: 2px solid $accent-2;
-    font-family: 'Brexter';
-    font-size: 2vw;
-    span {
-      font-size: 3vw;
-      font-family: 'Yellowtail'
-    }
   }
 
   h3 {

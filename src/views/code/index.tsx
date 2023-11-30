@@ -14,15 +14,15 @@ const Code: React.FC = () => {
 
   return (
     <>
-      <div className={`resume Card ${onPage}`}>
+      <section className={`resume Card ${onPage}`}>
         <h2>I'm <span>a Software Developer</span></h2>
         <h3>Lumen Technologies Inc.</h3>
         <h3>Bonfire Consulting Group</h3>
         <h3>Theorem LTS</h3>
-      </div>
-      <div className={`techBadges ${onPage}`}>
+      </section>
+      <section className={`techBadges ${onPage}`}>
         {renderTechBadges()}
-      </div>
+      </section>
     </>
   ) 
 }
