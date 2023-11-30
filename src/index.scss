@@ -25,6 +25,12 @@ h2 {
     font-size: 3vw;
     font-family: 'Yellowtail'
   }
+  @media (max-width: $sm-break) {
+    font-size: 17px;
+    span {
+      font-size: 26px;
+    }
+  }
 }
 
 .Card {

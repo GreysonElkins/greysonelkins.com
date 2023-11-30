@@ -3,6 +3,7 @@
 .Characters {
     position: absolute;
     transition: top 400ms, bottom 400ms;
+    z-index: 15;
 }
 
 .PlayerSettings-menu-closed {

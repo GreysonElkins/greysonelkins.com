@@ -19,7 +19,7 @@
   }
 
   &.closed {
-    left: -40vw;
+    left: -400vw;
   }
 }
 
@@ -43,7 +43,7 @@
       bottom: -500px;
     }
     @media (max-width: $med-break) {
-      top: -500px;
+      top: -1000px;
     }
   }
 

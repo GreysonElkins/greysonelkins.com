@@ -1,4 +1,10 @@
+@import 'variables.scss';
+
 .Music {
     margin-top: 100px;
     width: 900px;
+
+    @media (max-width: $med-break) {
+        margin-top: 0px;
+    }
 }

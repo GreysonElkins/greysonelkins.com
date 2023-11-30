@@ -4,7 +4,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 70vw;
     transition: left 400ms;
     z-index: -10;
     h2 {
@@ -26,9 +26,12 @@
 
     &.open {
         left: 20vw;
+        @media (max-width: $med-break) {
+            left: 10vw;
+        }
     }
 
     &.closed {
-        left: -40vw
+        left: -200vw
     }
 }

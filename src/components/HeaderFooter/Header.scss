@@ -1,7 +1,7 @@
 @import 'variables.scss';
 
 .Controls {
-  z-index: 20;
+  z-index: 35;
   h1 {
     position:absolute;
     top: 0;
@@ -14,7 +14,10 @@
     }
 
     @media (max-width: $sm-break) {
-      font-size: 30px;
+      font-size: 26px;
+    }
+    @media (max-width: $xs-break) {
+      font-size: 8vw;
     }
   }
 
@@ -86,13 +89,18 @@
   border-bottom: 1px solid $accent-1;
   align-items: flex-end;
   margin-bottom: 100px;
-  z-index: 10;
+  z-index: 30;
 
   nav {
     padding: 10px 20px;
+    max-width: 45%;
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     button {
       @include cta-1;
-
+      margin-top: 8px;
       padding: 6px 10px;
       @media (max-width: $med-break) {
         font-size: 10px;
@@ -119,13 +127,14 @@
   @media (max-width: $xs-break) {
     display: flex;
     justify-content: center;
-    height: 150px;
+    height: 40.5vw;
     padding: 0;
     align-items: flex-start;
 
     nav {
       padding: 0;
       padding-top: 6px;
+      max-width: 100%;
       }
     }
   }

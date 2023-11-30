@@ -6,8 +6,12 @@
     flex-direction: column;
     align-items: flex-end;
     top: 400px;
-    width: 40vw;
-    transition: right 400ms;
+    width: 70vw;
+    transition: right 400ms, top 400ms;
+
+    @media (max-width: $med-break) {
+      top: 300px;
+    }
     h2 {
         color: $accent-1;
         padding-right: 120px;
@@ -29,9 +33,12 @@
 
     &.open {
         right: 20vw;
+        @media (max-width: $med-break) {
+        right: 10vw;
+        }
     }
 
     &.closed {
-        right: -40vw;
+        right: -200vw;
     }
 }
