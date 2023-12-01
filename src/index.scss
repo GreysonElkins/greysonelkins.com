@@ -27,9 +27,9 @@ code {
 
 h2 {
   font-family: 'Brexter';
-  font-size: 2vw;
+  font-size: 20px;
   span {
-    font-size: 3vw;
+    font-size: 30px;
     font-family: 'Yellowtail'
   }
   @media (max-width: $sm-break) {
@@ -47,7 +47,7 @@ h2 {
 
   h3 {
     font-family: 'Brexter';
-    font-size: 1vw;
+    font-size: 18px;
   }
 
   background-image: $white-tile;

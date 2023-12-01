@@ -7,4 +7,41 @@
     @media (max-width: $med-break) {
         margin-top: 0px;
     }
+    .band {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 70vw;
+      transition: left 400ms, right 400ms, top 400ms;
+      z-index: -10;
+      
+      @media (max-width: $sm-break) {
+        width: 80vw;
+      }
+      
+      h2 {
+          color: $accent-1;
+          white-space: nowrap;
+        }
+        img {
+            width: 250px;
+            border-radius: 50%;
+            
+            @media (max-width: $sm-break) {
+              width: 28vw;
+            }
+            @media (max-width: $xs-break) {
+              width: 150px;
+             }
+        }
+
+
+        .body {
+            display: flex;
+            color: $white;
+            div {
+                margin-top: 10px;
+            }
+        } 
+    }
 }

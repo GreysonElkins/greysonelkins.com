@@ -1,40 +1,33 @@
 @import 'variables.scss';
 
 .Feral {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
     align-items: flex-end;
-    top: 400px;
-    width: 70vw;
-    transition: right 400ms, top 400ms;
+    top: 450px;
 
     @media (max-width: $med-break) {
       top: 300px;
     }
+
     h2 {
         color: $accent-1;
         padding-right: 120px;
         margin-bottom: 0px;
-    }
-    img {
-        width: 250px;
-        border-radius: 50%;
+        @media (max-width: $sm-break) {
+          padding-right: 14vw;
+        }
+        @media (max-width: $xs-break) {
+          padding-right: 75px;
+        }
     }
 
     .body {
-        display: flex;
         flex-direction: row-reverse;
-        color: $white;
-        div {
-            margin-top: 10px;
-        }
     }
 
     &.open {
         right: 20vw;
         @media (max-width: $med-break) {
-        right: 10vw;
+            right: 10vw;
         }
     }
 

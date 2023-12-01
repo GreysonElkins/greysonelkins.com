@@ -7,10 +7,10 @@ const Feral = () => {
   const { isOnPage } = useView('/music')
   const open = isOnPage ? "open" : "closed"
 
-  return <section className={`Feral ${open}`}>
+  return <section className={`Feral band ${open}`}>
     <h2>singer for <span>Feral Suits</span></h2>
     <div className="body">
-        <img src={feral} />
+        <img src={feral} alt="Five musicians, a rock band" />
         <div>Feral Suits is another band, etc.</div>
     </div>
   </section>

@@ -7,11 +7,16 @@
   z-index: 0;
   padding-top: 130px;
   width: 35vw;
-  transition: left 400ms;
+  transition: left 400ms, width 400ms, height 400ms;
   border-radius: 0;
   
   @media (max-width: $med-break) {
     padding-top: 0px;
+  }
+
+  @media (max-width: $sm-break) {
+    top: 70px;
+    width: 100vw;
   }
 
   &.open {
@@ -26,15 +31,39 @@
 .techBadges {
   position: absolute;
   left: 42vw;
-  margin-right: 20px;
+  margin-right: 5vw;
   transition: bottom 400ms, top 400ms;
-
+  width: 50vw;
+  
+  @media (max-width: $sm-break) {
+    -webkit-animation-name: move;
+    -webkit-animation-duration: 26s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: reverse;
+    
+    -webkit-animation-timing-function: linear;
+    
+    &:hover {
+      -webkit-animation-play-state: paused;
+    }
+  }
+  @media (max-width: xs-break) {
+    -webkit-animation-duration: 20s;
+  }
+  
   &.open {
     @media (min-width: $med-break) {
       bottom: 20px;
     }
     @media (max-width: $med-break) {
       top: 20px;
+    }
+    @media (max-width: $sm-break) {
+      white-space: nowrap;
+      width: 100vw;
+      // bottom: 60px;
+      width: 100vw;
+      left: 5px;
     }
   }
   
@@ -49,5 +78,23 @@
 
   img {
     margin: 2px 3px;
+  }
+}
+
+@keyframes move {
+  0% {
+    margin-left: -780vw;
+  }
+  100% {
+    margin-left: 110vw;
+  }
+}
+
+@-webkit-keyframes move {
+  0% {
+    margin-left: -780vw;
+  }
+  100% {
+    margin-left: 110vw;
   }
 }
