@@ -26,8 +26,6 @@ const useSprite = (
   const spriteRef = useRef<HTMLDivElement>(null)
   const { width: windowWidth } = useWindowSize()
 
-  useEffect(() => console.log(windowWidth), [windowWidth])
-
   useEffect(() => {
     if (windowWidth === 0) return
     if (x + params.frameWidth < windowWidth) return
