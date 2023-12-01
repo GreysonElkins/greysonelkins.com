@@ -44,8 +44,8 @@ const Sprite: React.FC<SpriteProps> = ({
         setCurrentFrame(isFacingLeft ? internalFrameCount.current - 1 : 0)
         if (!looping) {
           setLooping(true)
-          setCurrentRow(defaultFrameRow)
           setFrameCount(prev => ({ ...prev, current: prev.orig }))
+          setCurrentRow(defaultFrameRow)
         }
       }
     }, frameSpeed)

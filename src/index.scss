@@ -1,6 +1,11 @@
 @import 'variables.scss';
 
+html, body {
+  overflow: hidden;
+}
+
 body {
+  position: relative;
   background-image: $black-tile-2;
   margin: 0;
   padding: 0;

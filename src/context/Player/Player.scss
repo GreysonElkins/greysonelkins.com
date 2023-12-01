@@ -26,6 +26,9 @@
    @media (max-width: $med-break) {
       bottom: 150px;
    }
+   @media (max-width: $xs-break) {
+      bottom: 41vw;
+   }
    //  top: 125px;
     right: 10px;
    }

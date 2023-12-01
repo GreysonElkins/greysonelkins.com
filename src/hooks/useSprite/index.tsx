@@ -49,13 +49,13 @@ const useSprite = (
     updateProps({ ...positions['LEFT'], isFacingLeft: true, isLooping: true })
     setPosition((prev) => ({ x: prev.x - 20, y: prev.y }))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [positions])
 
   const moveRight = useCallback(() => {
     updateProps({ ...positions['RIGHT'], isFacingLeft: false, isLooping: true })
     setPosition((prev) => ({ x: prev.x + 20, y: prev.y }))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [positions])
 
   const click = useCallback(() => {
     let foundClickable = false
@@ -70,7 +70,7 @@ const useSprite = (
     }
     updateProps({ ...positions['CLICK'], isLooping: false })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [positions])
 
   const idle = useCallback(() => {
     updateProps({
@@ -80,7 +80,7 @@ const useSprite = (
       isFacingLeft: undefined,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [params])
 
   const onKeyDown = useCallback(
     (event: any) => {
