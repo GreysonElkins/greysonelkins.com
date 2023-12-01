@@ -4,7 +4,7 @@ import LilGal, { lilGalSettings } from './LilGal'
 import MrHat, { mrHatSettings } from './ MrHat'
 import Fox, { foxSettings } from './Fox'
 import Satan, { satanSettings } from './Satan'
-import TheBrain, { theBrainSettings } from './TheBrain/TheBrain'
+import TheBrain, { theBrainSettings } from './TheBrain'
 import Grumpy, { grumpySettings } from './Grumpy'
 import usePlayer from 'hooks/usePlayer'
 

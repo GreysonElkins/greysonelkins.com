@@ -1,27 +1,33 @@
 import useSprite from 'hooks/useSprite'
 import satan from 'assets/SATAN.png'
 
-import { SpriteActions as A, CharacterProps } from 'types/Sprites.d'
+import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 
-export const satanSettings = {
+export const satanSettings: SpriteSettings = {
   params: {
     spriteSheet: satan,
     frameWidth: 64,
     frameHeight: 64,
-    frameCount: 7,
   },
   positions: {
-    [A['LEFT']]: {
-      frameCount: 8,
-      currentFrameRow: 1,
+    IDLE: {
+      frameCount: 7,
+      frameRow: 0,
     },
-    [A['RIGHT']]: {
+    LEFT: {
       frameCount: 8,
-      currentFrameRow: 1,
+      frameRow: 1,
+      isLeftFacing: true,
     },
-    [A['CLICK']]: {
+    RIGHT: {
+      frameCount: 8,
+      frameRow: 1,
+      isLeftFacing: false,
+    },
+    CLICK: {
       frameCount: 6,
-      currentFrameRow: 2,
+      frameRow: 2,
+      isLooping: false,
     },
   },
 }

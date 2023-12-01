@@ -1,28 +1,33 @@
 import useSprite from 'hooks/useSprite'
 import the_brain from 'assets/BRAIN.png'
 
-import { SpriteActions as A, CharacterProps } from 'types/Sprites.d'
+import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 
-export const theBrainSettings = {
+export const theBrainSettings: SpriteSettings = {
   params: {
     spriteSheet: the_brain,
     frameWidth: 64,
     frameHeight: 64,
-    frameCount: 8,
-    defaultFrameRow: 3
   },
   positions: {
-    [A['LEFT']]: {
+    IDLE: {
       frameCount: 8,
-      currentFrameRow: 0,
+      frameRow: 3,
     },
-    [A['RIGHT']]: {
+    LEFT: {
       frameCount: 8,
-      currentFrameRow: 0,
+      frameRow: 0,
+      isLeftFacing: true,
     },
-    [A['CLICK']]: {
+    RIGHT: {
+      frameCount: 8,
+      frameRow: 0,
+      isLeftFacing: false,
+    },
+    CLICK: {
       frameCount: 5,
-      currentFrameRow: 1,
+      frameRow: 1,
+      isLooping: false,
     },
   },
 }

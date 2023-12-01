@@ -1,27 +1,33 @@
 import useSprite from "hooks/useSprite"
 import space_ranger from 'assets/SPACERANGER.png'
 
-import { SpriteActions as A, CharacterProps } from 'types/Sprites.d'
+import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 
-export const spaceRangerSettings = {
+export const spaceRangerSettings: SpriteSettings = {
   params: {
     spriteSheet: space_ranger,
     frameWidth: 64,
     frameHeight: 64,
-    frameCount: 4,
   },
   positions: {
-    [A['LEFT']]: {
-      frameCount: 8,
-      currentFrameRow: 1,
+    IDLE: {
+      frameCount: 4,
+      frameRow: 0,
     },
-    [A['RIGHT']]: {
+    LEFT: {
       frameCount: 8,
-      currentFrameRow: 1,
+      frameRow: 1,
+      isLeftFacing: true,
     },
-    [A['CLICK']]: {
+    RIGHT: {
+      frameCount: 8,
+      frameRow: 1,
+      isLeftFacing: false,
+    },
+    CLICK: {
       frameCount: 5,
-      currentFrameRow: 2,
+      frameRow: 2,
+      isLooping: false,
     },
   },
 }

@@ -3,20 +3,21 @@ import { RefObject } from "react";
 export type WindowPosition = { x: number; y: number }
 
 export type SpriteProps = {
-  [key: string]: string | number | boolean | WindowPosition | undefined
+  // [key: string]: string | number | boolean | WindowPosition | undefined
   spriteSheet: string
   frameWidth: number
   frameHeight: number
-  frameCount: number
+  // frameCount: number
   frameSpeed?: number
-  currentFrameRow?: number
-  defaultFrameRow?: number
+  // currentFrameRow?: number
+  // defaultFrameRow?: number
   isFacingLeft?: boolean
-  isLooping?: boolean
-  offset?: WindowPosition
+  // isLooping?: boolean
+  // offset?: WindowPosition
 }
 
 export enum SpriteActions {
+  IDLE = 'IDLE',
   LEFT = 'LEFT',
   RIGHT = 'RIGHT',
 //   JUMP = 'JUMP',
@@ -26,7 +27,15 @@ export enum SpriteActions {
 export type Clickables = RefObject<HTMLButtonElement>
 
 type SpritePositions = {
-  [key in keyof typeof SpriteActions]: SpriteUpdate
+  [key in keyof typeof SpriteActions]: {
+    frameRow: number
+    frameCount: number
+    // frameWidth?: number
+    // frameHeight?: number
+    // frameSpeed?: number
+    isLeftFacing?: boolean
+    isLooping?: boolean
+  }
 }
 
 type CharacterProps = {

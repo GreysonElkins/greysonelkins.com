@@ -1,27 +1,33 @@
 import useSprite from 'hooks/useSprite'
 import lil_guy from 'assets/LILGUY.png'
 
-import { SpriteActions as A, CharacterProps } from 'types/Sprites.d'
+import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 
-export const lilGuySettings = {
+export const lilGuySettings: SpriteSettings = {
   params: {
     spriteSheet: lil_guy,
     frameWidth: 64,
-    frameHeight: 64,
-    frameCount: 13,
+    frameHeight: 64
   },
   positions: {
-    [A['LEFT']]: {
-      frameCount: 8,
-      currentFrameRow: 1,
+    IDLE: {
+      frameCount: 13,
+      frameRow: 0
     },
-    [A['RIGHT']]: {
+    LEFT: {
       frameCount: 8,
-      currentFrameRow: 1,
+      frameRow: 1,
+      isLeftFacing: true
     },
-    [A['CLICK']]: {
+    RIGHT: {
+      frameCount: 8,
+      frameRow: 1,
+      isLeftFacing: false
+    },
+    CLICK: {
       frameCount: 6,
-      currentFrameRow: 10,
+      frameRow: 10,
+      isLooping: false
     },
   },
 }

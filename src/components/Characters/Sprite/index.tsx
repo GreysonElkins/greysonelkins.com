@@ -1,57 +1,47 @@
 import { useState, useEffect } from "react"
 
-import { SpriteProps } from 'types/Sprites.d'
+import { SpritePositions, SpriteProps, SpriteActions } from 'types/Sprites.d'
 import './Sprite.scss'
 
-const Sprite: React.FC<SpriteProps> = ({
-  spriteSheet,
-  frameWidth,
-  frameHeight,
-  frameCount,
-  isFacingLeft = false,
-  frameSpeed = 150,
-  defaultFrameRow = 0,
-  currentFrameRow,
-  isLooping = true,
-  offset = { x: 0, y: 0 }
-}) => {
-  const [currentRow, setCurrentRow] = useState(defaultFrameRow)
+const Sprite: React.FC<{ 
+  props: SpriteProps
+  positions: SpritePositions 
+  position?: keyof typeof SpriteActions
+}> = ({ props, positions, position }) => {
+  const [p, setPosition] = useState<keyof typeof SpriteActions>(position || 'IDLE')
+  const [faceLeft, setFaceLeft] = useState<boolean>(props.isFacingLeft || false)
   const [currentFrame, setCurrentFrame] = useState<number>(0)
-  const [internalFrameCount, setFrameCount] = useState({ current: frameCount, orig: frameCount })
-  const [looping, setLooping] = useState<boolean>(true)
+  
+  const { spriteSheet, frameWidth, frameHeight, frameSpeed } = props
+  const { isLooping, isLeftFacing, frameCount, frameRow } = positions[p]
 
   useEffect(() => {
-    // reset current frame 
-    if (!isFacingLeft) return setCurrentFrame(0)
-    if (isFacingLeft) return setCurrentFrame(frameCount - 1)
-  }, [isLooping, frameCount, isFacingLeft])
+    if (!position) return
+    setCurrentFrame(0)
+    setPosition(position)
+  }, [position])
 
-  useEffect(() => setLooping(isLooping), [isLooping])
-  useEffect(() => setCurrentRow(currentFrameRow || defaultFrameRow), 
-    [currentFrameRow, defaultFrameRow]
-  )
-  useEffect(() => setFrameCount(prev => ({ ...prev, current: frameCount })), [frameCount])
   useEffect(() => {
-    //animation
+    if (isLeftFacing !== undefined && isLeftFacing !== faceLeft)
+      setFaceLeft(isLeftFacing) 
+    //eslint-disable-next-line
+  }, [isLeftFacing])
+
+  useEffect(() => {
     const keyframes = setInterval(() => {
-      if (isFacingLeft === undefined) return
-      // debugger
-      if (!isFacingLeft && currentFrame < (internalFrameCount.current - 1) && currentFrame >= 0) {
+      if (currentFrame < frameCount - 1) {
         setCurrentFrame((p) => p + 1)
-      } else if (isFacingLeft && currentFrame <= (internalFrameCount.current - 1) && currentFrame > 0) {
-        setCurrentFrame((p) => p - 1)
       } else {
-        setCurrentFrame(isFacingLeft ? internalFrameCount.current - 1 : 0)
-        if (!looping) {
-          setLooping(true)
-          setFrameCount(prev => ({ ...prev, current: prev.orig }))
-          setCurrentRow(defaultFrameRow)
+        if (isLooping === false) {
+          // setLooping(true)
+          setPosition('IDLE')
         }
+        setCurrentFrame(0)
       }
-    }, frameSpeed)
+    }, frameSpeed || 150)
     // cleanup
     return () => clearInterval(keyframes)
-  }, [isFacingLeft, currentFrame, frameCount, looping, frameSpeed, defaultFrameRow, internalFrameCount])
+  }, [currentFrame, frameCount, frameSpeed, isLooping])
 
   return (
     <div className="Sprite" style={{ width: frameWidth, height: frameHeight }}>
@@ -59,9 +49,9 @@ const Sprite: React.FC<SpriteProps> = ({
         alt="video game sprite"
         src={spriteSheet}
         style={{
-          top: -(currentRow * frameHeight) - offset.y,
-          [isFacingLeft ? 'right' : 'left']: -(currentFrame * frameWidth) - offset.x,
-          transform: `scaleX(${isFacingLeft ? -1 : 1})`,
+          top: -(frameRow * frameHeight),
+          [faceLeft ? 'right' : 'left']: -(currentFrame * frameWidth),
+          transform: `scaleX(${faceLeft ? -1 : 1})`,
         }}
       />
     </div>

@@ -1,5 +1,4 @@
 import { 
-  useReducer, 
   useState, 
   useRef, 
   useCallback, 
@@ -8,27 +7,10 @@ import {
 import Sprite from "components/Characters/Sprite"
 import { elementsOverlap } from "scripts"
 
-import { SpriteProps, WindowPosition, SpritePositions, Clickables } from "types/Sprites.d"
+import { SpriteProps, WindowPosition, SpritePositions, Clickables, SpriteActions } from "types/Sprites.d"
 import './useSprite.scss'
 
 const initClickables: Clickables[] = []
-
-interface SpriteUpdate extends Omit<SpriteProps, 'spriteSheet'> {
-  frameWidth?: number
-  frameHeight?: number
-  currentFrameRow?: number
-  spriteSheet?: string
-  defaultFrameRow?: number
-}
-
-const updateSprite = (state:SpriteProps, update:SpriteUpdate) => {
-  const updatedState = Object.keys(update).reduce((updatedState, u) => {
-    if (update[u] !== undefined && update[u] !== updatedState[u])
-        updatedState[u] = update[u]
-    return updatedState
-  }, {...state})
-  return {...state, ...updatedState}
-}
 
 const useSprite = (
   params: SpriteProps,
@@ -37,22 +19,24 @@ const useSprite = (
   disabled?: boolean,
   defaultPosition = { x: 0, y: 0 } as WindowPosition,
 ) => {
-  const [spriteProps, updateProps] = useReducer(updateSprite, params)
   const [{ x, y }, setPosition] = useState<WindowPosition>(defaultPosition)
+  const [userAction, setUserAction] =
+    useState<keyof typeof SpriteActions | undefined>(undefined)
   const spriteRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    updateProps(params)
-  }, [params])
+  // useEffect(() => {
+  //   if (!userAction) return
+  //   setUserAction(undefined)
+  // }, [userAction])
 
   const moveLeft = useCallback(() => {
-    updateProps({ ...positions['LEFT'], isFacingLeft: true, isLooping: true })
+    setUserAction('LEFT')
     setPosition((prev) => ({ x: prev.x - 20, y: prev.y }))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positions])
-
+  
   const moveRight = useCallback(() => {
-    updateProps({ ...positions['RIGHT'], isFacingLeft: false, isLooping: true })
+    setUserAction('RIGHT')
     setPosition((prev) => ({ x: prev.x + 20, y: prev.y }))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positions])
@@ -68,17 +52,19 @@ const useSprite = (
       // clickables[i]?.current?.focus()
       clickables[i]?.current?.click()
     }
-    updateProps({ ...positions['CLICK'], isLooping: false })
+    setUserAction('CLICK')
+    // updateProps({ ...positions['CLICK'], isLooping: false })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positions])
 
   const idle = useCallback(() => {
-    updateProps({
-      ...params,
-      isLooping: true,
-      currentFrameRow: params.defaultFrameRow || 0,
-      isFacingLeft: undefined,
-    })
+    setUserAction('IDLE')
+    // updateProps({
+    //   ...params,
+    //   isLooping: true,
+    //   currentFrameRow: params.defaultFrameRow || 0,
+    //   isFacingLeft: undefined,
+    // })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params])
 
@@ -103,13 +89,14 @@ const useSprite = (
     window.addEventListener('keydown', onKeyDown)
     window.addEventListener('keyup', (event) => {
       if (disabled) return
+      setUserAction(undefined)
       if (event.code !== 'Space') idle()
     })
   }, [disabled, onKeyDown, idle])
 
   const sprite = (
     <div className="SpritePosition" ref={spriteRef} style={{ left: x, top: y }}>
-      <Sprite {...spriteProps} />
+      <Sprite props={params} positions={positions} position={userAction} />
     </div>
   )
 

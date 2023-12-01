@@ -1,27 +1,33 @@
 import useSprite from 'hooks/useSprite'
 import grumpy from 'assets/GRUMPY.png'
 
-import { SpriteActions as A, CharacterProps } from 'types/Sprites.d'
+import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 
-export const grumpySettings = {
+export const grumpySettings: SpriteSettings = {
   params: {
     spriteSheet: grumpy,
     frameWidth: 64,
     frameHeight: 64,
-    frameCount: 4,
   },
   positions: {
-    [A['LEFT']]: {
+    IDLE: {
       frameCount: 4,
-      currentFrameRow: 1,
+      frameRow: 0,
     },
-    [A['RIGHT']]: {
+    LEFT: {
       frameCount: 4,
-      currentFrameRow: 1,
+      frameRow: 1,
+      isLeftFacing: true,
     },
-    [A['CLICK']]: {
+    RIGHT: {
       frameCount: 4,
-      currentFrameRow: 3,
+      frameRow: 1,
+      isLeftFacing: false,
+    },
+    CLICK: {
+      frameCount: 4,
+      frameRow: 3,
+      isLooping: false,
     },
   },
 }

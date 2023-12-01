@@ -1,27 +1,33 @@
 import useSprite from 'hooks/useSprite'
 import mr_hat from 'assets/MRHAT.png'
 
-import { SpriteActions as A, CharacterProps } from 'types/Sprites.d'
+import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 
-export const mrHatSettings = {
+export const mrHatSettings: SpriteSettings = {
   params: {
     spriteSheet: mr_hat,
     frameWidth: 128,
-    frameHeight: 64,
-    frameCount: 8,
+    frameHeight: 64
   },
   positions: {
-    [A['LEFT']]: {
+    IDLE: {
       frameCount: 8,
-      currentFrameRow: 1,
+      frameRow: 0
     },
-    [A['RIGHT']]: {
+    LEFT: {
       frameCount: 8,
-      currentFrameRow: 1,
+      frameRow: 1,
+      isLeftFacing: true
     },
-    [A['CLICK']]: {
+    RIGHT: {
+      frameCount: 8,
+      frameRow: 1,
+      isLeftFacing: false
+    },
+    CLICK: {
       frameCount: 6,
-      currentFrameRow: 3,
+      frameRow: 3,
+      isLooping: false
     },
   },
 }

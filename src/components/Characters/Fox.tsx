@@ -1,27 +1,32 @@
 import useSprite from 'hooks/useSprite'
 import fox from 'assets/FOX.png'
 
-import { SpriteActions as A, CharacterProps } from 'types/Sprites.d'
+import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 
-export const foxSettings = {
+export const foxSettings:SpriteSettings = {
   params: {
     spriteSheet: fox,
     frameWidth: 64,
-    frameHeight: 64,
-    frameCount: 5,
+    frameHeight: 64
   },
   positions: {
-    [A['LEFT']]: {
-      frameCount: 8,
-      currentFrameRow: 2,
+    IDLE: {
+      frameCount: 5,
+      frameRow: 0
     },
-    [A['RIGHT']]: {
+    LEFT: {
       frameCount: 8,
-      currentFrameRow: 2,
+      frameRow: 2,
+      isLeftFacing: true
     },
-    [A['CLICK']]: {
+    RIGHT: {
+      frameCount: 8,
+      frameRow: 2,
+    },
+    CLICK: {
       frameCount: 11,
-      currentFrameRow: 3,
+      frameRow: 3,
+      isLooping: false
     },
   },
 }

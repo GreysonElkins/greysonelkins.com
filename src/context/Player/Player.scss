@@ -19,6 +19,7 @@
 }
 
 .PlayerSettings-menu-open {
+   right: 10px;
    .Characters {
    @media (min-width: $med-break) {
       top: 125px;
@@ -28,8 +29,9 @@
    }
    @media (max-width: $xs-break) {
       bottom: 41vw;
+      right: -45px;
+      margin: 0;
    }
    //  top: 125px;
-    right: 10px;
    }
 }
