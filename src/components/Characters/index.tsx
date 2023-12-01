@@ -1,3 +1,5 @@
+import { useWindowSize } from 'usehooks-ts'
+
 import SpaceRanger, { spaceRangerSettings } from './SpaceRanger'
 import LilGuy, { lilGuySettings } from './LilGuy'
 import LilGal, { lilGalSettings } from './LilGal'
@@ -61,8 +63,9 @@ const Characters: React.FC<{ onSelect?: () => void }> = ({ onSelect }) => {
       return (
         <button 
           key={`character-${i}`} 
-          onClick={() => {
-            changeSprite(buttons[k].settings)
+          onClick={(event) => {
+            changeSprite(buttons[k].settings);
+            (event.target as HTMLElement).blur()
             onSelect && onSelect()
           }}
         >

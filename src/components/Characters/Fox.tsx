@@ -22,6 +22,7 @@ export const foxSettings:SpriteSettings = {
     RIGHT: {
       frameCount: 8,
       frameRow: 2,
+      isLeftFacing: false
     },
     CLICK: {
       frameCount: 11,

@@ -91,6 +91,16 @@
   margin-bottom: 100px;
   z-index: 30;
 
+  .Sprite {
+    @media (max-width: 732px) {
+      top: -30px
+    }
+    @media (max-width: $xs-break) {
+      top: -60px
+    }
+
+  }
+
   nav {
     padding: 10px 20px;
     max-width: 45%;

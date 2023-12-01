@@ -4,6 +4,7 @@ import {
   useCallback, 
   useEffect
 } from "react"
+import { useWindowSize } from "usehooks-ts"
 import Sprite from "components/Characters/Sprite"
 import { elementsOverlap } from "scripts"
 
@@ -23,23 +24,36 @@ const useSprite = (
   const [userAction, setUserAction] =
     useState<keyof typeof SpriteActions | undefined>(undefined)
   const spriteRef = useRef<HTMLDivElement>(null)
+  const { width: windowWidth } = useWindowSize()
 
-  // useEffect(() => {
-  //   if (!userAction) return
-  //   setUserAction(undefined)
-  // }, [userAction])
+  useEffect(() => console.log(windowWidth), [windowWidth])
+
+  useEffect(() => {
+    if (windowWidth === 0) return
+    if (x + params.frameWidth < windowWidth) return
+    setPosition((prev) => ({ x: windowWidth - params.frameWidth, y: prev.y }))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.frameWidth, windowWidth])
 
   const moveLeft = useCallback(() => {
     setUserAction('LEFT')
-    setPosition((prev) => ({ x: prev.x - 20, y: prev.y }))
+    setPosition((prev) => ({ 
+      x: prev.x - 15 > 0 ? prev.x - 15 : 0, 
+      y: prev.y }))
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positions])
   
   const moveRight = useCallback(() => {
     setUserAction('RIGHT')
-    setPosition((prev) => ({ x: prev.x + 20, y: prev.y }))
+    if (windowWidth === 0) return
+    setPosition((prev) => ({ 
+      x: prev.x + 15 < (windowWidth - params.frameWidth) ? 
+        prev.x + 15 : windowWidth - params.frameWidth, 
+      y: prev.y
+    }))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [positions])
+  }, [positions, windowWidth, params.frameWidth])
 
   const click = useCallback(() => {
     let foundClickable = false
