@@ -111,6 +111,7 @@
     white-space: nowrap;
     flex-wrap: wrap;
     justify-content: flex-end;
+
     button {
       @include cta-1;
       margin-top: 8px;
@@ -119,7 +120,16 @@
         font-size: 10px;
         padding: 4px 8px;
       }
+      
+    }
+  }
 
+  a {
+    &.active {
+      button {
+        color: $black;
+        background: $accent-1;
+      }
     }
   }
   
