@@ -1,0 +1,88 @@
+@import 'variables.scss';
+
+.Contact {
+    position: absolute;
+    background-color: rgba(225, 221, 208, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40vw;
+    height: 100vh;
+    padding: 160px 10vw;
+    // margin: 0 35vw;
+    left: 20vw;
+    transition: top 400ms, padding 200ms;
+    
+    @media (min-width: $lg-break) {
+        width: 600px;
+        // margin: 0 ;
+        padding: 160px 168px;
+        left: calc((100vw - 936px)/2);
+    } 
+    
+    @media (max-width: $med-break) {
+        padding: 50px 124px;
+        width: 496px;
+        left: calc((100vw - 744px)/2);
+    }
+    
+    @media (max-width: $xs-break) {
+        background-color: rgba(225, 221, 208, 0);
+        width: 90vw;
+        left: 0;
+        padding: 5vw 5vw;
+    }
+
+    h2 {
+        color: $accent-1
+    }
+
+    label {
+        color: $white;
+        text-transform: lowercase;
+        margin-bottom: 5px;
+        font-family: 'Brexter';
+        span {
+            color: $accent-2;
+        }
+    }
+    
+    .sender { 
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        div {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    textarea {
+        margin-bottom: 10px;
+        // width: 250px;
+        background-image: $white-tile;
+        border-radius: 5px;
+    }
+
+    .message, .subject {
+        width: 98.5%;
+    }
+
+    input {
+        @include cta-1;
+        align-self: flex-end;
+        margin: 10px 0;
+        padding: 4px 8px;
+        font-size: 20px;
+        margin-right: 2px;
+    }
+
+    &.closed {
+        top: -200vh
+    }
+
+    &.open {
+        top: 0px;
+    }
+}

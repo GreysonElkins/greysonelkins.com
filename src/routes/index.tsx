@@ -1,26 +1,17 @@
 import {
   createBrowserRouter,
 } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
 import App from "components/App"
 
 const routes = createBrowserRouter([
   {
     path: '*',
-    element: <App />,
-    // children: [
-    //   {
-    //     path: 'code',
-    //     element: <Code />,
-    //   },
-    //   {
-    //     path: 'music',
-    //     element: <UnderConstruction />,
-    //   },
-    //   {
-    //     path: 'contact',
-    //     element: <UnderConstruction />,
-    //   }
-    // ],
+    element: (
+      <>
+        <App />
+      </>
+    )
   },
   {
     path: 'about',
