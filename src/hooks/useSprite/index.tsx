@@ -6,7 +6,7 @@ import {
 } from "react"
 import { useWindowSize } from "usehooks-ts"
 import Sprite from "components/Characters/Sprite"
-import { elementsOverlap } from "scripts"
+import { elementsOverlap, elementSideOverlaps } from "scripts"
 
 import { SpriteProps, WindowPosition, SpritePositions, Clickables, SpriteActions } from "types/Sprites.d"
 import './useSprite.scss'
@@ -22,8 +22,20 @@ const useSprite = (
 ) => {
   const [{ x, y }, setPosition] = useState<WindowPosition>(defaultPosition)
   const [action, setAction] = useState<keyof typeof SpriteActions>('IDLE')
+  const [isFacingLeft, setIsFacingLeft] = useState<boolean>(positions[action].isLeftFacing || false)
   const spriteRef = useRef<HTMLDivElement>(null)
   const { width: windowWidth } = useWindowSize()
+
+  useEffect(() => {
+    const update = positions[action].isLeftFacing
+    if (    
+      update !== undefined &&
+      positions[action].isLeftFacing !== isFacingLeft
+    ) {
+        setIsFacingLeft(update)
+    }
+    //eslint-disable-next-line
+  }, [positions[action], action])
 
   useEffect(() => {
     if (windowWidth === 0) return
@@ -56,7 +68,7 @@ const useSprite = (
   const moveLeft = useCallback(() => {
     setAction('LEFT')
   }, [])
-  
+
   const moveRight = useCallback(() => {
     setAction('RIGHT')
   }, [])
@@ -65,6 +77,7 @@ const useSprite = (
     let foundClickable = false
     let i = -1
     while (foundClickable === false && i < clickables.length) {
+      // if (elementSideOverlaps(spriteRef, clickables[i], isFacingLeft)) foundClickable = true
       if (elementsOverlap(spriteRef, clickables[i])) foundClickable = true
       if (!foundClickable) i++
     }
@@ -73,7 +86,7 @@ const useSprite = (
       clickables[i]?.current?.click()
     }
     setAction('CLICK')
-  }, [clickables])
+  }, [clickables, isFacingLeft])
 
   const idle = useCallback(() => {
     setAction('IDLE')
@@ -96,10 +109,13 @@ const useSprite = (
     [disabled, moveRight, moveLeft, click, idle]
   )
 
-  const onKeyUp = useCallback((event:KeyboardEvent) => {
-    if (disabled) return
-    if (event.code !== 'Space') idle()
-  }, [disabled, idle])
+  const onKeyUp = useCallback(
+    (event: KeyboardEvent) => {
+      if (disabled) return
+      if (event.code !== 'Space') idle()
+    },
+    [disabled, idle]
+  )
 
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown)
@@ -112,7 +128,12 @@ const useSprite = (
 
   const sprite = (
     <div className="SpritePosition" ref={spriteRef} style={{ left: x, top: y }}>
-      <Sprite props={params} position={positions[action]} setAction={setAction} />
+      <Sprite
+        props={params}
+        position={positions[action]}
+        setAction={setAction}
+        isFacingLeft={isFacingLeft}
+      />
     </div>
   )
 

@@ -7,23 +7,24 @@ const Sprite: React.FC<{
   props: SpriteProps
   position: FrameSet
   setAction: Dispatch<SetStateAction<keyof typeof SpriteActions>>
-}> = ({ props, position, setAction }) => {
-  const [faceLeft, setFaceLeft] = useState<boolean>(props.isFacingLeft || false)
+  isFacingLeft?: boolean
+}> = ({ props, position, setAction, isFacingLeft }) => {
+  // const [faceLeft, setFaceLeft] = useState<boolean>(props.isFacingLeft || false)
   const [currentFrame, setCurrentFrame] = useState<number>(0)
   
   const { spriteSheet, frameWidth, frameHeight, frameSpeed } = props
-  const { isLooping, isLeftFacing, frameCount, frameRow } = position
+  const { isLooping, frameCount, frameRow } = position
 
   useEffect(() => {
     setCurrentFrame(0)
     //eslint-disable-next-line
   }, [position])
 
-  useEffect(() => {
-    if (isLeftFacing !== undefined && isLeftFacing !== faceLeft)
-      setFaceLeft(isLeftFacing) 
-    //eslint-disable-next-line
-  }, [isLeftFacing])
+  // useEffect(() => {
+  //   if (isLeftFacing !== undefined && isLeftFacing !== faceLeft)
+  //     setFaceLeft(isLeftFacing) 
+  //   //eslint-disable-next-line
+  // }, [isLeftFacing])
 
   useEffect(() => {
     const keyframes = setInterval(() => {
@@ -47,8 +48,8 @@ const Sprite: React.FC<{
         src={spriteSheet}
         style={{
           top: -(frameRow * frameHeight),
-          [faceLeft ? 'right' : 'left']: -(currentFrame * frameWidth),
-          transform: `scaleX(${faceLeft ? -1 : 1})`,
+          [isFacingLeft ? 'right' : 'left']: -(currentFrame * frameWidth),
+          transform: `scaleX(${isFacingLeft ? -1 : 1})`,
         }}
       />
     </div>

@@ -1,1 +1,1 @@
-export { default as elementsOverlap } from './elementsOverlap'
+export { default as elementsOverlap, elementSideOverlaps } from './elementsOverlap'
