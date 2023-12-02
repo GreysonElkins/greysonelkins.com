@@ -73,6 +73,14 @@ const useSprite = (
     setAction('RIGHT')
   }, [])
 
+  const moveUp = useCallback(() => {
+    setAction('UP')
+  }, [])
+
+  const moveDown = useCallback(() => {
+    setAction('DOWN')
+  }, [])
+
   const click = useCallback(() => {
     let foundClickable = false
     let i = -1
@@ -86,7 +94,7 @@ const useSprite = (
       clickables[i]?.current?.click()
     }
     setAction('CLICK')
-  }, [clickables, isFacingLeft])
+  }, [clickables, isFacingLeft, params.clickOffset])
 
   const idle = useCallback(() => {
     setAction('IDLE')
@@ -100,21 +108,25 @@ const useSprite = (
           return moveRight()
         case 'ArrowLeft':
           return moveLeft()
+        case 'ArrowUp':
+          return moveUp()
+        case 'ArrowDown':
+          return moveDown()
         case 'Space':
           return click()
         default:
           return idle()
       }
     },
-    [disabled, moveRight, moveLeft, click, idle]
+    [disabled, moveRight, moveLeft, moveUp, moveDown, click, idle]
   )
 
   const onKeyUp = useCallback(
     (event: KeyboardEvent) => {
       if (disabled) return
-      if (event.code !== 'Space') idle()
+      if (positions[action].isLooping !== false) idle()
     },
-    [disabled, idle]
+    [action, disabled, idle, positions]
   )
 
   useEffect(() => {
@@ -137,7 +149,7 @@ const useSprite = (
     </div>
   )
 
-  return { sprite, moveLeft, moveRight, click, idle }
+  return { sprite, moveLeft, moveRight, click, idle, moveUp, moveDown }
 }
 
 export default useSprite

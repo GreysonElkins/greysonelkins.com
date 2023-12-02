@@ -50,7 +50,7 @@
     }
   }
 
-  #spacebar, #left, #right {
+  #spacebar, #left, #right, #up, #down {
     position: absolute;
     background: none;
     border: none;
@@ -64,8 +64,16 @@
     width: 56.5%;
     left: 5px;
   }
-  #left, #right {
+  #left, #right, #up, #down {
     width: 12.5%;
+  }
+
+  #up, #down {
+    left: 217px
+  }
+
+  #up {
+    bottom: 52px
   }
 
   #left {

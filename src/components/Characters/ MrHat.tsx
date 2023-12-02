@@ -15,6 +15,11 @@ export const mrHatSettings: SpriteSettings = {
       frameCount: 8,
       frameRow: 0
     },
+    UP: {
+      frameCount: 7,
+      frameRow: 2,
+      isLooping: false
+    },
     LEFT: {
       frameCount: 8,
       frameRow: 1,
@@ -30,6 +35,11 @@ export const mrHatSettings: SpriteSettings = {
       frameRow: 3,
       isLooping: false
     },
+    DOWN: {
+      frameCount: 5,
+      frameRow: 6,
+      stopAtEnd: true
+    }
   },
 }
 

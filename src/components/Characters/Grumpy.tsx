@@ -14,6 +14,15 @@ export const grumpySettings: SpriteSettings = {
       frameCount: 4,
       frameRow: 0,
     },
+    UP: {
+      frameCount: 4,
+      frameRow: 0,
+    },
+    DOWN: {
+      frameCount: 4,
+      frameRow: 2,
+      stopAtEnd: true
+    },
     LEFT: {
       frameCount: 4,
       frameRow: 1,

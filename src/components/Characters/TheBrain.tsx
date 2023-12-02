@@ -8,12 +8,22 @@ export const theBrainSettings: SpriteSettings = {
     spriteSheet: the_brain,
     frameWidth: 64,
     frameHeight: 64,
-    clickOffset: 10
+    clickOffset: 10,
   },
   positions: {
     IDLE: {
       frameCount: 8,
+      frameRow: 0,
+    },
+    UP: {
+      frameCount: 8,
       frameRow: 3,
+      isLooping: false
+    },
+    DOWN: {
+      frameCount: 8,
+      frameRow: 2,
+      stopAtEnd: true
     },
     LEFT: {
       frameCount: 8,

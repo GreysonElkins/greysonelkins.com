@@ -8,27 +8,37 @@ export const lilGuySettings: SpriteSettings = {
     spriteSheet: lil_guy,
     frameWidth: 64,
     frameHeight: 64,
-    clickOffset: 30
+    clickOffset: 30,
   },
   positions: {
     IDLE: {
       frameCount: 13,
-      frameRow: 0
+      frameRow: 0,
+    },
+    UP: {
+      frameCount: 6,
+      frameRow: 5,
+      isLooping: false
+    },
+    DOWN: {
+      frameCount: 7,
+      frameRow: 7,
+      stopAtEnd: true
     },
     LEFT: {
       frameCount: 8,
       frameRow: 1,
-      isLeftFacing: true
+      isLeftFacing: true,
     },
     RIGHT: {
       frameCount: 8,
       frameRow: 1,
-      isLeftFacing: false
+      isLeftFacing: false,
     },
     CLICK: {
       frameCount: 6,
       frameRow: 10,
-      isLooping: false
+      isLooping: false,
     },
   },
 }

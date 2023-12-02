@@ -8,12 +8,22 @@ export const satanSettings: SpriteSettings = {
     spriteSheet: satan,
     frameWidth: 64,
     frameHeight: 64,
-    clickOffset: 20
+    clickOffset: 20,
   },
   positions: {
     IDLE: {
       frameCount: 7,
       frameRow: 0,
+    },
+    UP: {
+      frameCount: 4,
+      frameRow: 1,
+      isLooping: false
+    },
+    DOWN: {
+      frameCount: 4,
+      frameRow: 3,
+      stopAtEnd: true
     },
     LEFT: {
       frameCount: 8,

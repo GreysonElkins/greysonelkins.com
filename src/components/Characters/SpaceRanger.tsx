@@ -14,6 +14,16 @@ export const spaceRangerSettings: SpriteSettings = {
       frameCount: 4,
       frameRow: 0,
     },
+    UP: {
+      frameCount: 5,
+      frameRow: 1,
+      isLooping: false
+    },
+    DOWN: {
+      frameCount: 4,
+      frameRow: 4,
+      stopAtEnd: true
+    },
     LEFT: {
       frameCount: 8,
       frameRow: 1,

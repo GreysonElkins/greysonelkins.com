@@ -8,12 +8,22 @@ export const lilGalSettings: SpriteSettings = {
     spriteSheet: lil_gal,
     frameWidth: 64,
     frameHeight: 64,
-    clickOffset: 5
+    clickOffset: 5,
   },
   positions: {
     IDLE: {
       frameCount: 6,
       frameRow: 0,
+    },
+    UP: {
+      frameCount: 9,
+      frameRow: 2,
+      isLooping: false
+    },
+    DOWN: {
+      frameCount: 7,
+      frameRow: 4,
+      stopAtEnd: true
     },
     LEFT: {
       frameCount: 8,
@@ -27,7 +37,7 @@ export const lilGalSettings: SpriteSettings = {
     },
     CLICK: {
       frameCount: 9,
-      frameRow: 2,
+      frameRow: 5,
       isLooping: false,
     },
   },

@@ -20,14 +20,9 @@ const Sprite: React.FC<{
     //eslint-disable-next-line
   }, [position])
 
-  // useEffect(() => {
-  //   if (isLeftFacing !== undefined && isLeftFacing !== faceLeft)
-  //     setFaceLeft(isLeftFacing) 
-  //   //eslint-disable-next-line
-  // }, [isLeftFacing])
-
   useEffect(() => {
     const keyframes = setInterval(() => {
+      if (position.stopAtEnd && currentFrame === frameCount - 1) return
       if (currentFrame < frameCount - 1) {
         setCurrentFrame((p) => p + 1)
       } else {

@@ -3,32 +3,42 @@ import fox from 'assets/FOX.png'
 
 import { CharacterProps, SpriteSettings } from 'types/Sprites.d'
 
-export const foxSettings:SpriteSettings = {
+export const foxSettings: SpriteSettings = {
   params: {
     spriteSheet: fox,
     frameWidth: 64,
     frameHeight: 64,
-    clickOffset: 10
+    clickOffset: 10,
   },
   positions: {
     IDLE: {
       frameCount: 5,
-      frameRow: 0
+      frameRow: 0,
+    },
+    UP: {
+      frameCount: 11,
+      frameRow: 3,
+      isLooping: false
+    },
+    DOWN: {
+      frameCount: 7,
+      frameRow: 6,
+      stopAtEnd: true
     },
     LEFT: {
       frameCount: 8,
       frameRow: 2,
-      isLeftFacing: true
+      isLeftFacing: true,
     },
     RIGHT: {
       frameCount: 8,
       frameRow: 2,
-      isLeftFacing: false
+      isLeftFacing: false,
     },
     CLICK: {
-      frameCount: 11,
-      frameRow: 3,
-      isLooping: false
+      frameCount: 5,
+      frameRow: 4,
+      isLooping: false,
     },
   },
 }

@@ -18,7 +18,7 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   const contact = useRef<HTMLButtonElement>(null)
   const character = useRef<HTMLButtonElement>(null)
   const { spriteSettings, toggleMenuIsOpen, closeCharacterMenu } = usePlayer()
-  const { sprite, moveLeft, moveRight, click, idle } = useSprite(
+  const { sprite, moveLeft, moveUp, moveDown, moveRight, click, idle } = useSprite(
     spriteSettings.params, 
     spriteSettings.positions, 
   [
@@ -48,6 +48,31 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
             moveLeft()
           }}
           onTouchEnd={idle}
+        />
+        <button
+          id="down"
+          onMouseDown={() => {
+            closeCharacterMenu()
+            moveDown()
+          }}
+          onMouseUp={idle}
+          onTouchStart={() => {
+            closeCharacterMenu()
+            moveDown()
+          }}
+          onTouchEnd={idle}
+        />
+        <button
+          id="up"
+          onMouseDown={() => {
+            closeCharacterMenu()
+            moveUp()
+          }}
+          onMouseUp={idle}
+          onTouchStart={() => {
+            closeCharacterMenu()
+            moveUp()
+          }}
         />
         <button
           id="right"
