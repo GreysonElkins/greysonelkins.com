@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SizeProp } from '@fortawesome/fontawesome-svg-core'
-import { faSpotify, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faSpotify, faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faChess } from '@fortawesome/free-solid-svg-icons'
 
 import './Socials.scss'
@@ -20,6 +20,9 @@ const Socials: React.FC<{size: SizeProp}> = ({ size }) => {
           rel="noreferrer"
         >
           <FontAwesomeIcon icon={faSpotify} size={size} />
+        </a>
+        <a href="http://www.github.com/greysonelkins" target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faGithub} size={size} />
         </a>
         <a href="http://www.linkedin.com/in/greyson-elkins" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faLinkedin} size={size} />
