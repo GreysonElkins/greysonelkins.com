@@ -1,0 +1,15 @@
+@import 'variables.scss';
+
+.Socials {
+    display: flex;
+    justify-content: space-between;
+    width: min-content;
+    a {
+        color: rgba(225, 221, 208, 0.3);
+        margin: 0 4px;
+    }
+    a:active {
+        color: $accent-1;
+    }
+
+}

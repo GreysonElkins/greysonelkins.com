@@ -101,8 +101,11 @@
 
   }
 
-  nav {
+  > * { 
     padding: 10px 20px;
+  }
+
+  nav {
     max-width: 45%;
     display: flex;
     white-space: nowrap;
@@ -133,6 +136,15 @@
     border-bottom: none;
     border-top: 1px solid $accent-1;
     align-items: flex-end;
+  }
+
+  @media (min-width: $xs-break) {
+    flex-direction: column;
+  }
+  @media (max-width: $xs-break) {
+    .Socials {
+      display: None;
+    }
   }
   @media (max-width: $xs-break) {
     display: flex;

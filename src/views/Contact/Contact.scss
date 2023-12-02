@@ -13,6 +13,14 @@
     left: 20vw;
     transition: top 400ms, padding 200ms;
     
+    .Socials {
+      align-self: center;
+      margin-top: -43px;
+      a {
+        color: $black;
+      }
+    }
+
     @media (min-width: $lg-break) {
         width: 600px;
         // margin: 0 ;
@@ -31,6 +39,14 @@
         width: 90vw;
         left: 0;
         padding: 5vw 5vw;
+
+        .Socials {
+            align-self: center;
+            margin-top: -43px;
+            a {
+                color: rgba(225, 221, 208, 0.2);
+            }
+        }
     }
 
     h2 {

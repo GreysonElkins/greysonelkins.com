@@ -4,9 +4,11 @@ import { useInterval } from 'usehooks-ts'
 import useSprite from 'hooks/useSprite'
 import usePlayer from 'hooks/usePlayer'
 import keyboard from 'assets/keyboard2.png'
+import Socials from 'components/Socials'
 
 import './Header.scss'
 import { Link } from 'react-router-dom'
+import useView from 'hooks/useView'
 
 const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   // const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
@@ -27,6 +29,7 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   ], false,
   { x: 370, y: 44 }
   )
+  const { isOnPage: isContact } = useView('/contact')
   
   useInterval(() => {
     buttonPressed && buttonPressed()
@@ -42,6 +45,7 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
         <button id="right" ref={right}onClick={moveRight} />
       </div>
       <header className="Header">
+        {!isContact && <Socials size="lg" />}
         <nav>
           <Link to="/code">
             <button ref={code}>

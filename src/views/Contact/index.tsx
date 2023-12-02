@@ -1,8 +1,10 @@
-import { useReducer, useEffect, ChangeEventHandler, FormEventHandler, useState } from 'react'
+import { useReducer, ChangeEventHandler, FormEventHandler, useState } from 'react'
 import { toast } from 'react-toastify'
 import * as emailjs from '@emailjs/browser'
-import './Contact.scss'
 import useView from 'hooks/useView'
+import Socials from 'components/Socials'
+
+import './Contact.scss'
 
 type FormContents = {
   from_name: string
@@ -106,6 +108,7 @@ const Contact: React.FC = () => {
           onChange={onChange}
         />
         <input disabled={sending} type="submit" value="send" />
+        <Socials size="2x" />
       </form>
     </>
   )
