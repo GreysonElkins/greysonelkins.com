@@ -18,7 +18,7 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   const music = useRef<HTMLButtonElement>(null)
   const contact = useRef<HTMLButtonElement>(null)
   const character = useRef<HTMLButtonElement>(null)
-  const { spriteSettings, toggleMenuIsOpen } = usePlayer()
+  const { spriteSettings, toggleMenuIsOpen, closeCharacterMenu } = usePlayer()
   const { sprite, moveLeft, moveRight, click, idle } = useSprite(
     spriteSettings.params, 
     spriteSettings.positions, 
@@ -33,21 +33,36 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
     <>
       <div className="Controls">
         <h1>Greyson Elkins.COM</h1>
-        <button id="spacebar" ref={space} onMouseDown={click} />
+        <button id="spacebar" ref={space} onMouseDown={() => {
+          
+          click()
+        }} />
         <button
           id="left"
           ref={left}
-          onMouseDown={moveLeft}
+          onMouseDown={() => {
+            closeCharacterMenu()
+            moveLeft()
+          }}
           onMouseUp={idle}
-          onTouchStart={moveLeft}
+          onTouchStart={() => {
+            closeCharacterMenu()
+            moveLeft()
+          }}
           onTouchEnd={idle}
         />
         <button
           id="right"
           ref={right}
-          onMouseDown={moveRight}
+          onMouseDown={() => {
+            closeCharacterMenu()
+            moveRight() 
+          }}
           onMouseUp={idle}
-          onTouchStart={moveRight}
+          onTouchStart={() => {
+            closeCharacterMenu()
+            moveRight() 
+          }}
           onTouchEnd={idle}
         />
         <img id="keys" src={keyboard} alt="greyson-elkins-header" />
@@ -56,13 +71,14 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
         {!isContact && <Socials size="lg" />}
         <nav>
           <Link to="/code">
-            <button ref={code}>code</button>
+            
+            <button ref={code} onClick={closeCharacterMenu}>code</button>
           </Link>
           <Link to="/music">
-            <button ref={music}>music</button>
+            <button ref={music} onClick={closeCharacterMenu}>music</button>
           </Link>
           <Link to="/contact">
-            <button ref={contact}>contact</button>
+            <button ref={contact} onClick={closeCharacterMenu}>contact</button>
           </Link>
           <button ref={character} onClick={toggleMenuIsOpen}>
             CHOOSE YOUR CHARACTER

@@ -10,6 +10,7 @@ export const PlayerValue = createContext({} as {
   spriteSettings: SpriteSettings
   changeSprite: (settings: SpriteSettings) => void
   toggleMenuIsOpen: () => void
+  closeCharacterMenu: () => void
 })
 
 const PlayerContext: React.FC<PropsWithChildren> = ({ children }) => {
@@ -17,10 +18,11 @@ const PlayerContext: React.FC<PropsWithChildren> = ({ children }) => {
   const [characterMenuOpen, setCharacterMenuOpen] = useState<boolean>(false)
 
   const toggleMenuIsOpen = () => setCharacterMenuOpen(prev => !prev)
+  const closeCharacterMenu = () => characterMenuOpen && setCharacterMenuOpen(false)
 
   const changeSprite = (settings: SpriteSettings) => setSpriteSettings(settings)
 
-  return <PlayerValue.Provider value={{ spriteSettings, changeSprite, toggleMenuIsOpen }}>
+  return <PlayerValue.Provider value={{ spriteSettings, changeSprite, toggleMenuIsOpen, closeCharacterMenu }}>
     <div className={`PlayerSettings-menu-${characterMenuOpen ? 'open' : 'closed'}`}>
       <Characters onSelect={toggleMenuIsOpen}/>
       {children}
