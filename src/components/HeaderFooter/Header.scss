@@ -91,12 +91,12 @@
   margin-bottom: 100px;
   z-index: 30;
 
-  .Sprite {
+  .SpritePosition {
     @media (max-width: 732px) {
-      top: -30px
+      margin-top: -30px
     }
     @media (max-width: $xs-break) {
-      top: -60px
+      margin-top: -60px
     }
 
   }
