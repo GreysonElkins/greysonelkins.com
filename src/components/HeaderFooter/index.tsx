@@ -1,5 +1,4 @@
-import { useRef, useState, PropsWithChildren } from 'react'
-import { useInterval } from 'usehooks-ts'
+import { useRef, PropsWithChildren } from 'react'
 
 import useSprite from 'hooks/useSprite'
 import usePlayer from 'hooks/usePlayer'
@@ -19,9 +18,8 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   const music = useRef<HTMLButtonElement>(null)
   const contact = useRef<HTMLButtonElement>(null)
   const character = useRef<HTMLButtonElement>(null)
-  const [buttonPressed, setButtonPressed] = useState<null | (() => void)>(null)
   const { spriteSettings, toggleMenuIsOpen } = usePlayer()
-  const { sprite, moveLeft, moveRight, click } = useSprite(
+  const { sprite, moveLeft, moveRight, click, idle } = useSprite(
     spriteSettings.params, 
     spriteSettings.positions, 
   [
@@ -31,46 +29,32 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   )
   const { isOnPage: isContact } = useView('/contact')
   
-  useInterval(() => {
-    buttonPressed && buttonPressed()
-  }, buttonPressed ? 1000 : null)
-
   return (
     <>
       <div className="Controls">
         <h1>Greyson Elkins.COM</h1>
-        <img id="keys" src={keyboard} alt="greyson-elkins-header" />
-        <button id="spacebar" ref={space} onClick={click} />
-        <button id="left" ref={left} onClick={moveLeft} />
-        <button id="right" ref={right}onClick={moveRight} />
+        <button id="spacebar" ref={space} onMouseDown={click} />
+        <button id="left" ref={left} onMouseDown={moveLeft} onMouseUp={idle} />
+        <button id="right" ref={right} onMouseDown={moveRight} onMouseUp={idle} />
+          <img id="keys" src={keyboard} alt="greyson-elkins-header" />
       </div>
       <header className="Header">
         {!isContact && <Socials size="lg" />}
         <nav>
           <Link to="/code">
-            <button ref={code}>
-              code
-            </button>
+            <button ref={code}>code</button>
           </Link>
           <Link to="/music">
-            <button ref={music}>
-              music
-            </button>
+            <button ref={music}>music</button>
           </Link>
           <Link to="/contact">
-            <button ref={contact}>
-              contact
-            </button>
+            <button ref={contact}>contact</button>
           </Link>
-          <button 
-            ref={character} 
-            onClick={toggleMenuIsOpen}
-          >
+          <button ref={character} onClick={toggleMenuIsOpen}>
             CHOOSE YOUR CHARACTER
           </button>
-          
         </nav>
-      {sprite}
+        {sprite}
       </header>
       {children}
     </>

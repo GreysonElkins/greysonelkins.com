@@ -1,24 +1,22 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, Dispatch, SetStateAction } from "react"
 
-import { SpritePositions, SpriteProps, SpriteActions } from 'types/Sprites.d'
+import { SpriteProps, SpriteActions, FrameSet } from 'types/Sprites.d'
 import './Sprite.scss'
 
 const Sprite: React.FC<{ 
   props: SpriteProps
-  positions: SpritePositions 
-  position?: keyof typeof SpriteActions
-}> = ({ props, positions, position }) => {
-  const [p, setPosition] = useState<keyof typeof SpriteActions>(position || 'IDLE')
+  position: FrameSet
+  setAction: Dispatch<SetStateAction<keyof typeof SpriteActions>>
+}> = ({ props, position, setAction }) => {
   const [faceLeft, setFaceLeft] = useState<boolean>(props.isFacingLeft || false)
   const [currentFrame, setCurrentFrame] = useState<number>(0)
   
   const { spriteSheet, frameWidth, frameHeight, frameSpeed } = props
-  const { isLooping, isLeftFacing, frameCount, frameRow } = positions[p]
+  const { isLooping, isLeftFacing, frameCount, frameRow } = position
 
   useEffect(() => {
-    if (!position) return
     setCurrentFrame(0)
-    setPosition(position)
+    //eslint-disable-next-line
   }, [position])
 
   useEffect(() => {
@@ -33,15 +31,14 @@ const Sprite: React.FC<{
         setCurrentFrame((p) => p + 1)
       } else {
         if (isLooping === false) {
-          // setLooping(true)
-          setPosition('IDLE')
+          setAction('IDLE')
         }
         setCurrentFrame(0)
       }
-    }, frameSpeed || 150)
+    }, frameSpeed || 100)
     // cleanup
     return () => clearInterval(keyframes)
-  }, [currentFrame, frameCount, frameSpeed, isLooping])
+  }, [currentFrame, frameCount, frameSpeed, isLooping, setAction])
 
   return (
     <div className="Sprite" style={{ width: frameWidth, height: frameHeight }}>

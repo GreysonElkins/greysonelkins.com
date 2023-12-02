@@ -26,8 +26,7 @@ export enum SpriteActions {
 
 export type Clickables = RefObject<HTMLButtonElement>
 
-type SpritePositions = {
-  [key in keyof typeof SpriteActions]: {
+export type FrameSet = {
     frameRow: number
     frameCount: number
     // frameWidth?: number
@@ -35,7 +34,10 @@ type SpritePositions = {
     // frameSpeed?: number
     isLeftFacing?: boolean
     isLooping?: boolean
-  }
+}
+
+type SpritePositions = {
+  [key in keyof typeof SpriteActions]: FrameSet
 }
 
 type CharacterProps = {
