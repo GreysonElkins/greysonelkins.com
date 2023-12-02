@@ -7,7 +7,6 @@ import Socials from 'components/Socials'
 
 import './Header.scss'
 import {  NavLink } from 'react-router-dom'
-import useView from 'hooks/useView'
 
 const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   // const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
@@ -27,7 +26,6 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   ], false,
   { x: 370, y: 44 }
   )
-  const { isOnPage: isContact } = useView('/contact')
   
   return (
     <>
@@ -68,7 +66,7 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
         <img id="keys" src={keyboard} alt="greyson-elkins-header" />
       </div>
       <header className="Header">
-        {!isContact && <Socials size="lg" />}
+        <Socials size="lg" />
         <nav>
           < NavLink to="/code">
             

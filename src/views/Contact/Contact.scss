@@ -19,6 +19,12 @@
       a {
         color: $black;
       }
+      a:active {
+        color: $accent-1;
+      }
+      a:hover {
+        color: $accent-1;
+      }
     }
 
     @media (min-width: $lg-break) {

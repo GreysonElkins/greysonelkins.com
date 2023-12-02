@@ -4,11 +4,15 @@
     display: flex;
     justify-content: space-between;
     width: min-content;
+    transition: color 600ms;
     a {
         color: rgba(225, 221, 208, 0.3);
         margin: 0 4px;
     }
     a:active {
+        color: $accent-1;
+    }
+    a:hover {
         color: $accent-1;
     }
 
