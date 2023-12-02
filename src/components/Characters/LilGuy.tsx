@@ -7,7 +7,8 @@ export const lilGuySettings: SpriteSettings = {
   params: {
     spriteSheet: lil_guy,
     frameWidth: 64,
-    frameHeight: 64
+    frameHeight: 64,
+    clickOffset: 30
   },
   positions: {
     IDLE: {

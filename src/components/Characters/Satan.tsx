@@ -8,6 +8,7 @@ export const satanSettings: SpriteSettings = {
     spriteSheet: satan,
     frameWidth: 64,
     frameHeight: 64,
+    clickOffset: 20
   },
   positions: {
     IDLE: {

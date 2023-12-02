@@ -7,7 +7,8 @@ export const foxSettings:SpriteSettings = {
   params: {
     spriteSheet: fox,
     frameWidth: 64,
-    frameHeight: 64
+    frameHeight: 64,
+    clickOffset: 10
   },
   positions: {
     IDLE: {

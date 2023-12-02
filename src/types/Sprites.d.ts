@@ -8,6 +8,7 @@ export type SpriteProps = {
   frameWidth: number
   frameHeight: number
   // frameCount: number
+  clickOffset?: number
   frameSpeed?: number
   // currentFrameRow?: number
   // defaultFrameRow?: number

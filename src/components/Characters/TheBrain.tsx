@@ -8,6 +8,7 @@ export const theBrainSettings: SpriteSettings = {
     spriteSheet: the_brain,
     frameWidth: 64,
     frameHeight: 64,
+    clickOffset: 20
   },
   positions: {
     IDLE: {

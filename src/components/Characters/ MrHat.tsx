@@ -7,7 +7,8 @@ export const mrHatSettings: SpriteSettings = {
   params: {
     spriteSheet: mr_hat,
     frameWidth: 128,
-    frameHeight: 64
+    frameHeight: 64,
+    clickOffset: 10
   },
   positions: {
     IDLE: {

@@ -77,8 +77,8 @@ const useSprite = (
     let foundClickable = false
     let i = -1
     while (foundClickable === false && i < clickables.length) {
-      // if (elementSideOverlaps(spriteRef, clickables[i], isFacingLeft)) foundClickable = true
-      if (elementsOverlap(spriteRef, clickables[i])) foundClickable = true
+      if (elementSideOverlaps(spriteRef, clickables[i], isFacingLeft, params.clickOffset)) foundClickable = true
+      // if (elementsOverlap(spriteRef, clickables[i])) foundClickable = true
       if (!foundClickable) i++
     }
     if (foundClickable) {

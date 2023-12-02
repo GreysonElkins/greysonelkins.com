@@ -8,6 +8,7 @@ export const lilGalSettings: SpriteSettings = {
     spriteSheet: lil_gal,
     frameWidth: 64,
     frameHeight: 64,
+    clickOffset: 5
   },
   positions: {
     IDLE: {
