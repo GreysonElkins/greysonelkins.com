@@ -34,8 +34,9 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
       <div className="Controls">
         <h1>Greyson Elkins.COM</h1>
         <button id="spacebar" ref={space} onMouseDown={click} />
-        <button id="left" ref={left} onMouseDown={moveLeft} onMouseUp={idle} />
-        <button id="right" ref={right} onMouseDown={moveRight} onMouseUp={idle} />
+        <button id="left" ref={left} onMouseDown={moveLeft} onMouseUp={idle} onTouchStart={moveLeft} onTouchEnd={idle}/>
+        {/* <button id="right" ref={right} onMouseDown={() => console.log("click")} onMouseUp={() => console.log("release")} onClick={() => console.log("press")} /> */}
+        <button id="right" ref={right} onMouseDown={moveRight} onMouseUp={idle} onTouchStart={moveLeft} onTouchEnd={idle} />
           <img id="keys" src={keyboard} alt="greyson-elkins-header" />
       </div>
       <header className="Header">
