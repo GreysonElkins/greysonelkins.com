@@ -68,7 +68,7 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
             closeCharacterMenu()
             moveUp()
           }}
-          onMouseUp={idle}
+          // onMouseUp={idle}
           onTouchStart={() => {
             closeCharacterMenu()
             moveUp()

@@ -69,12 +69,24 @@
   }
 
   #up, #down {
-    left: 217px
+    left: 217px;
+    @media (max-width: $sm-break) {
+      left: 317px;
+    } 
   }
 
   #up {
-    bottom: 52px
+    bottom: 52px;
+    @media (max-width: $sm-break) {
+      bottom: 75px;
+    }
   }
+  
+  #down, #left, #spacebar, #right {
+    @media (max-width: $sm-break) {
+      bottom: 15px;
+    } 
+  } 
 
   #left {
     left: 59%;
