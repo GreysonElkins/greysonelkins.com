@@ -34,7 +34,7 @@ const Sprite: React.FC<{
     }, frameSpeed || 100)
     // cleanup
     return () => clearInterval(keyframes)
-  }, [currentFrame, frameCount, frameSpeed, isLooping, setAction])
+  }, [currentFrame, frameCount, frameSpeed, isLooping, position.stopAtEnd, setAction])
 
   return (
     <div className="Sprite" style={{ width: frameWidth, height: frameHeight }}>

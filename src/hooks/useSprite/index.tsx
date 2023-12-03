@@ -6,7 +6,7 @@ import {
 } from "react"
 import { useWindowSize } from "usehooks-ts"
 import Sprite from "components/Characters/Sprite"
-import { elementsOverlap, elementSideOverlaps } from "scripts"
+import { elementSideOverlaps } from "scripts"
 
 import { SpriteProps, WindowPosition, SpritePositions, Clickables, SpriteActions } from "types/Sprites.d"
 import './useSprite.scss'
