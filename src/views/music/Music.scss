@@ -7,6 +7,7 @@
     @media (max-width: $med-break) {
         margin-top: 0px;
     }
+
     .band {
       position: absolute;
       display: flex;
@@ -14,6 +15,13 @@
       width: 70vw;
       transition: left 400ms, right 400ms, top 400ms;
       z-index: -10;
+
+      .socials {
+        a {
+          color: $accent-1;
+          margin: 0 4px;
+        }
+      }
       
       @media (max-width: $sm-break) {
         width: 80vw;
