@@ -33,8 +33,7 @@ const Snarklet: React.FC = () => {
         <div className="description">
           Snarklet is an extra-terrestrial singer and an extra-terrestrial band that's been making
           indie-pop-jazz music on planet Earth since 2022. We're currently recording our first set
-          of tunes in my home studio. I play a Mexican Fender Jaguar through a self-programmed MIDI
-          capable hand-wired analog pedal board.
+          of tunes in my home studio. I play a Mexican Fender Jaguar.
         </div>
       </div>
     </section>
