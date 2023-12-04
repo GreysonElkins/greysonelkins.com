@@ -1,5 +1,3 @@
-import { useWindowSize } from 'usehooks-ts'
-
 import SpaceRanger, { spaceRangerSettings } from './SpaceRanger'
 import LilGuy, { lilGuySettings } from './LilGuy'
 import LilGal, { lilGalSettings } from './LilGal'
