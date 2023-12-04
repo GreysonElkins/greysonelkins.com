@@ -25,7 +25,26 @@
   div {
     margin: 6px 0 24px;
     white-space: wrap;
+  }
 
+  .resume-download {
+    margin-left: -30px;
+    display: flex;
+    border: none;
+    background: none;
+    width: min-content;
+    align-self: center;
+    align-items: center;  
+    opacity: 0.6;
+    transition: opacity 400ms;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+    > * {
+      margin: 4px;
+    }
   }
   
   @media (max-width: $med-break) {

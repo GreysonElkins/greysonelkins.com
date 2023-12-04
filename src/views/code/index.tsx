@@ -2,6 +2,9 @@ import './Code.scss'
 import useView from 'hooks/useView'
 
 import technologyBadges from './technologyBadges'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import resume from '../../assets/elkins_resume.pdf'
 
 const Code: React.FC = () => {
   const { isOnPage } = useView('/code')
@@ -25,6 +28,18 @@ const Code: React.FC = () => {
         <h3>Theorem LTS</h3>
         <h4>Full Stack Engineer - Mar 2021 : Feb 2022</h4>
         <div>Developed buyer & seller features for a Legal Software Marketplace, including integration with Stripe.</div>
+        <a 
+          className="resume-download"
+          href={resume} 
+          download="elkins_resume"
+          target="_blank"
+          rel="noreferrer" 
+        >
+          <button className="resume-download">
+            <FontAwesomeIcon icon={faDownload} />
+            download full resume
+          </button>
+        </a>
       </section>
       <section className={`techBadges ${onPage}`}>
         {renderTechBadges()}
