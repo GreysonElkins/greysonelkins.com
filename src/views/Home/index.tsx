@@ -18,7 +18,7 @@ const Home: React.FC = () => {
         <img className="motion" src={motion} alt="audio and computer equipment" />
         <div className="content">
           <h2>Software Developer && Audio Engineer</h2>
-          <h3>Open to Work</h3>
+
         </div>
       </div>
     </>
