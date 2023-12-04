@@ -27,34 +27,6 @@
       }
     }
 
-    @media (min-width: $lg-break) {
-        width: 600px;
-        // margin: 0 ;
-        padding: 160px 168px;
-        left: calc((100vw - 936px)/2);
-    } 
-    
-    @media (max-width: $med-break) {
-        padding: 50px 124px;
-        width: 496px;
-        left: calc((100vw - 744px)/2);
-    }
-    
-    @media (max-width: $xs-break) {
-        background-color: rgba(225, 221, 208, 0);
-        width: 90vw;
-        left: 0;
-        padding: 5vw 5vw;
-
-        .Socials {
-            align-self: center;
-            margin-top: -43px;
-            a {
-                color: rgba(225, 221, 208, 0.2);
-            }
-        }
-    }
-
     h2 {
         color: $accent-1
     }
@@ -98,6 +70,10 @@
         padding: 4px 8px;
         font-size: 20px;
         margin-right: 2px;
+        @media (max-width: $xs-break) {
+            font-size: 14px;
+            margin: 5px 0;
+        }
     }
 
     &.closed {
@@ -106,5 +82,36 @@
 
     &.open {
         top: 0px;
+    }
+
+    @media (min-width: $lg-break) {
+        width: 600px;
+        // margin: 0 ;
+        padding: 160px 168px;
+        left: calc((100vw - 936px)/2);
+    } 
+    
+    @media (max-width: $med-break) {
+        padding: 0px 124px;
+        width: 496px;
+        left: calc((100vw - 744px)/2);
+    }
+    
+    @media (max-width: $xs-break) {
+        background-color: rgba(225, 221, 208, 0);
+        width: 90vw;
+        left: 0;
+        padding: 5vw 5vw;
+
+        .Socials {
+            align-self: center;
+            margin-top: -43px;
+            a {
+                color: rgba(225, 221, 208, 0.2);
+            }
+            @media (max-width: $xs-break) {
+                margin-top: -35px;
+            }
+        }
     }
 }

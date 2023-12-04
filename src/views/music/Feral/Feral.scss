@@ -1,56 +1,59 @@
 @import 'variables.scss';
 
 .Feral {
-    align-items: flex-end;
-    top: 430px;
+  align-items: flex-end;
+  top: 430px;
+  z-index: 5;
 
-    z-index: 5;
+  @media (max-width: $med-break) {
+    top: 280px;
+  }
 
-    @media (max-width: $med-break) {
-      top: 300px;
+  h2, .socials {
+      color: $accent-1;
+      padding-right: 120px;
+      margin-bottom: 0px;
+      @media (max-width: $sm-break) {
+        padding-right: 14vw;
+      }
+      @media (max-width: $xs-break) {
+        padding-right: 75px;
+      }
     }
+      
+  .socials {
+    margin-right: 100px;
+    margin-bottom: -20px;
+    @media (max-width: $xs-break) {
+      padding-right: 35px;
+    }
+  }
 
-    // .socials {
-    //   margin-right: 80px;
-    // }
+  .body {
+      flex-direction: row-reverse;
 
-    h2, .socials {
-        color: $accent-1;
-        padding-right: 120px;
-        margin-bottom: 0px;
-        @media (max-width: $sm-break) {
-          padding-right: 14vw;
-        }
+      div {
+        margin-top: 30px !important;
+        margin-right: 15px;
         @media (max-width: $xs-break) {
-          padding-right: 75px;
+          width: 45vw; 
         }
       }
-      
-      .socials {
-        margin-right: 100px;
-        margin-bottom: -20px;
-        @media (max-width: $xs-break) {
-          padding-right: 35px;
-        }
-    }
+  }
 
-    .body {
-        flex-direction: row-reverse;
+  &.open {
+      right: 10vw;
+      @media (max-width: $med-break) {
+          right: 5vw;
+      }
 
-        div {
-          margin-top: 30px !important;
-          margin-right: 15px;
-        }
-    }
+      @media (max-width: $xs-break) {
+        top: 300px; 
+        width: 80vw;
+      }
+  }
 
-    &.open {
-        right: 10vw;
-        @media (max-width: $med-break) {
-            right: 10vw;
-        }
-    }
-
-    &.closed {
-        right: -200vw;
-    }
+  &.closed {
+      right: -200vw;
+  }
 }

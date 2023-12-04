@@ -21,17 +21,28 @@
     .body {
       div {
         margin-left: 10px;
+        @media (max-width: $xs-break) {
+           margin-left: 40px;
+        }
       }
     }
 
     &.open {
         left: 10vw;
         @media (max-width: $med-break) {
-            left: 10vw;
+            left: 5vw;
         }
     }
 
     &.closed {
         left: -200vw
+    }
+    
+    @media (max-width: $med-break) {
+       top: 20px;
+    }
+
+    @media (max-width: $xs-break) {
+       top: 40px;
     }
 }
