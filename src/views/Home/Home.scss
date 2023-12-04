@@ -59,21 +59,21 @@
   }
 }
 
-.motion, .lines, .banner {
-
-}
-
 .lines { 
     z-index: -20;
     
+    
+    transition: opacity 600ms;
     &.open {
-      transition: opacity 600ms;
       opacity: 0;
     }
-
+    
     &.closed {
-      transition: opacity 0ms;
+      // transition: opacity 0ms;
       opacity: 1;
+      @media (max-width: 1010px) {
+        opacity: 0.3;
+      }
     }
 }
 

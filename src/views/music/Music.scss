@@ -1,11 +1,13 @@
 @import 'variables.scss';
 
 .Music {
+    // position: absolute;
     margin-top: 100px;
     width: 900px;
-
+    height: 100%;
+    width: 100vw;
     @media (max-width: $med-break) {
-        margin-top: 0px;
+      margin-top: 0px;
     }
 
     .band {
@@ -14,9 +16,10 @@
       flex-direction: column;
       width: 70vw;
       transition: left 400ms, right 400ms, top 400ms;
-      z-index: -10;
+      z-index: 0;
 
       .socials {
+        z-index: 20;
         a {
           color: $accent-1;
           margin: 0 4px;
@@ -27,8 +30,14 @@
         width: 80vw;
       }
       
+      
       h2 {
-          color: $accent-1;
+          display: flex;
+          align-items: center;
+          > * {
+              margin: 0 8px;
+          }
+        color: $accent-1;
           white-space: nowrap;
         }
         img {
@@ -37,9 +46,11 @@
             
             @media (max-width: $sm-break) {
               width: 28vw;
+              height: 20vw;
             }
             @media (max-width: $xs-break) {
               width: 150px;
+              height: 150px;
              }
         }
 
@@ -47,8 +58,19 @@
         .body {
             display: flex;
             color: $white;
-            div {
-                margin-top: 10px;
+            @media (max-width: $med-break) {
+                width: 80vw;
+            }
+            .description {
+              @media (min-width: $med-break) {
+                width: 40vw;
+              }
+              @media (max-width: $xs-break) {
+                font-size: 14px;
+              }
+              a{
+                color: $accent-2;
+              }
             }
         } 
     }
