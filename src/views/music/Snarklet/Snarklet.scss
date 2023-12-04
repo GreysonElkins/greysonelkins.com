@@ -6,6 +6,8 @@
         margin-bottom: -15px;
     }
 
+    top: 120px;
+
     .socials {
         margin-bottom: -31px;
         margin-left: 101px;
@@ -23,7 +25,7 @@
     }
 
     &.open {
-        left: 20vw;
+        left: 10vw;
         @media (max-width: $med-break) {
             left: 10vw;
         }

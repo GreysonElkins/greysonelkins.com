@@ -6,7 +6,7 @@ import keyboard from 'assets/keyboard2.png'
 import Socials from 'components/Socials'
 
 import './Header.scss'
-import {  NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   // const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
@@ -30,7 +30,9 @@ const HeaderFooter: React.FC<PropsWithChildren> = ({children}) => {
   return (
     <>
       <div className="Controls">
-        <h1>Greyson Elkins.COM</h1>
+        <Link to="/">
+          <h1>Greyson Elkins.COM</h1>
+        </Link>
         <button id="spacebar" ref={space} onMouseDown={() => {
           
           click()

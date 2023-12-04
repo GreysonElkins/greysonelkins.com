@@ -11,13 +11,13 @@
   flex-direction: column;
   // justify-content: space-between;
   main {
-    padding: 30px 150px;
-    transition: padding 400ms;
+    // padding: 30px 150px;
+    // transition: padding 400ms;
     @media (max-width: $med-break) {
-      padding: 30px 50px;
+      // padding: 30px 50px;
     }
     @media (max-width: $sm-break) {
-      padding: 20px 10px 10px;
+      // padding: 20px 10px 10px;
     }
   }
 }

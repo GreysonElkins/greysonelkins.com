@@ -2,7 +2,9 @@
 
 .Feral {
     align-items: flex-end;
-    top: 450px;
+    top: 430px;
+
+    z-index: 5;
 
     @media (max-width: $med-break) {
       top: 300px;
@@ -42,7 +44,7 @@
     }
 
     &.open {
-        right: 20vw;
+        right: 10vw;
         @media (max-width: $med-break) {
             right: 10vw;
         }

@@ -49,14 +49,14 @@ const useSprite = (
     const interval = setInterval(() => {
       if (action === 'LEFT') {
         setPosition((prev) => ({
-          x: prev.x - 15 > 0 ? prev.x - 15 : 0,
+          x: prev.x - 25 > 0 ? prev.x - 25 : 0,
           y: prev.y,
         }))
       } else if (windowWidth !== 0) {
         setPosition((prev) => ({
           x:
-            prev.x + 15 < windowWidth - params.frameWidth
-              ? prev.x + 15
+            prev.x + 25 < windowWidth - params.frameWidth
+              ? prev.x + 25
               : windowWidth - params.frameWidth,
           y: prev.y,
         }))

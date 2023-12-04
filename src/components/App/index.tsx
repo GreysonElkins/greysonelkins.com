@@ -1,4 +1,5 @@
 import { ToastContainer } from 'react-toastify'
+import Home from 'views/Home'
 import HeaderFooter from 'components/HeaderFooter'
 import PlayerContext from 'context/Player'
 import Music from 'views/music'
@@ -17,6 +18,7 @@ const App = () => (
     <PlayerContext>
       <HeaderFooter>
         <main>
+          <Home />
           <Code />
           <Music />
           <Contact />
