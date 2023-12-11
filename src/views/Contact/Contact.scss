@@ -82,6 +82,10 @@
 
     &.open {
         top: 0px;
+
+        @media (min-width: $lg-break) {
+            top: 40px
+        }   
     }
 
     @media (min-width: $lg-break) {

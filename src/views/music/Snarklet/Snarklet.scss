@@ -26,6 +26,10 @@
            margin-top: 5px;
         }
       }
+
+      @media (min-width: $lg-break) {
+        width: 35vw;
+      }
     }
 
     &.open {
@@ -33,17 +37,25 @@
         @media (max-width: $med-break) {
             left: 8vw;
         }
-    }
 
+        @media (min-width: $lg-break) {
+            left: 80px;
+        }
+    }
+    
     &.closed {
         left: -200vw
     }
     
     @media (max-width: $med-break) {
-       top: 40px;
+        top: 40px;
+    }
+    
+    @media (max-width: $xs-break) {
+        top: 00px;
     }
 
-    @media (max-width: $xs-break) {
-       top: 00px;
+    @media (min-width: $lg-break) {
+        top: 150px;
     }
 }
