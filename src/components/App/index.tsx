@@ -19,10 +19,11 @@ const App = () => (
     <Header>
     </Header>
     <main>
-      {/* <Home />
-      <Code />
+      <Home />
       <Music />
-      <Contact /> */}
+      {/* 
+      <Code />
+    <Contact /> */}
     </main>
   </div>
     </PlayerContext>

@@ -6,8 +6,8 @@ import './Music.scss'
 const Music: React.FC = () => {
   return (
     <section className="Music">
-        <Snarklet />
-        <Feral />
+      <Snarklet />
+      <Feral />
     </section>
   )
 }

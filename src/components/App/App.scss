@@ -11,8 +11,14 @@
   }
 
   main {
+    position: relative;
     height: 100%;
     width: 100%;
+
+    section {
+      overflow: scroll;
+      padding: 10px 250px;
+    }
   }
 }
 

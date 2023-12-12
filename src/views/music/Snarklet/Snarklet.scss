@@ -1,61 +1,11 @@
 @import 'variables.scss';
 
 .Snarklet {
-    h2 {
-        padding-left: 70px;
-        margin-bottom: -15px;
-        display: flex;
-        align-items: center;
-        > * {
-            margin: 0 8px;
-        }
-        @media(max-width: $xs-break) {
-            padding-left: 25px;
-            margin-bottom: -5px;
-        }
-    }
-
-    top: 120px;
-
-    .body {
-      .description {
-        margin-left: 16px;
-        margin-top: 18px;
-        @media (max-width: $xs-break) {
-           margin-left: 10px;
-           margin-top: 5px;
-        }
-      }
-
-      @media (min-width: $lg-break) {
-        width: 35vw;
-      }
-    }
-
     &.open {
-        left: 15vw;
-        @media (max-width: $med-break) {
-            left: 8vw;
-        }
-
-        @media (min-width: $lg-break) {
-            left: 80px;
-        }
+        left: 0;
     }
     
     &.closed {
         left: -200vw
-    }
-    
-    @media (max-width: $med-break) {
-        top: 40px;
-    }
-    
-    @media (max-width: $xs-break) {
-        top: 00px;
-    }
-
-    @media (min-width: $lg-break) {
-        top: 150px;
     }
 }

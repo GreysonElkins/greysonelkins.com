@@ -12,7 +12,7 @@ const Snarklet: React.FC = () => {
   const open = isOnPage ? 'open' : 'closed'
 
   return (
-    <section className={`Snarklet band ${open}`}>
+    <div className={`Snarklet band ${open}`}>
       <h2>
         guitar for <span>Snarklet</span>
         <div className="socials">
@@ -36,7 +36,7 @@ const Snarklet: React.FC = () => {
           of tunes in my home studio. I play a Mexican Fender Jaguar.
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

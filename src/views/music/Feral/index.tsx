@@ -11,7 +11,7 @@ const Feral = () => {
   const open = isOnPage ? 'open' : 'closed'
 
   return (
-    <section className={`Feral band ${open}`}>
+    <div className={`Feral band ${open}`}>
       <h2>
         singer for <span>Feral Suits</span>
         <div className="socials">
@@ -43,7 +43,7 @@ const Feral = () => {
           I'm waxing poetic and doing subtle impressions of all my favorite singers.
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

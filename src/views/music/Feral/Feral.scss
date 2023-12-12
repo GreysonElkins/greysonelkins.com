@@ -2,60 +2,16 @@
 
 .Feral {
   align-items: flex-end;
-  top: 450px;
-  z-index: 5;
-
-  @media (max-width: $med-break) {
-    top: 280px;
-  }
-
-  h2 {
-      color: $accent-1;
-      padding-right: 58px;
-      margin-bottom: 0px;
-      @media (max-width: $sm-break) {
-        padding-right: 14vw;
-      }
-      @media (max-width: $xs-break) {
-        padding-right: 0px;
-      }
-    }
-
+ 
   .body {
-      flex-direction: row-reverse;
-
-      .description {
-        margin-top: 10px;
-        margin-right: 10px;
-        @media (max-width: $xs-break) {
-          width: 45vw; 
-          margin-top: 0px;
-        }
-
-      }
-      @media (min-width: $lg-break) {
-        width: 35vw;
-      }
+    flex-direction: row-reverse;
   }
 
   &.open {
-      right: 15vw;
-      @media (max-width: $med-break) {
-          right: 8vw;
-      }
-
-      @media (max-width: $xs-break) {
-        top: 300px; 
-        width: 80vw;
-      }
-
-      @media (min-width: $lg-break) {
-        top: 500px;
-        right: 80px;
-      }
+    right: 0vw;
   }
 
   &.closed {
-      right: -200vw;
+    right: -200vw;
   }
 }
