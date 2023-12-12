@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify'
 import Home from 'views/Home'
-import HeaderFooter from 'components/HeaderFooter'
+import Header from 'components/Header'
 import PlayerContext from 'context/Player'
 import Music from 'views/music'
 import Contact from 'views/Contact'
@@ -16,14 +16,14 @@ const App = () => (
       position="bottom-right"
     />
     <PlayerContext>
-      <HeaderFooter>
-        <main>
-          <Home />
-          <Code />
-          <Music />
-          <Contact />
-        </main>
-      </HeaderFooter>
+      <Header>
+      </Header>
+      <main>
+        {/* <Home />
+        <Code />
+        <Music />
+        <Contact /> */}
+      </main>
     </PlayerContext>
   </div>
 )
