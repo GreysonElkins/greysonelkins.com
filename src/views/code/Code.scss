@@ -48,9 +48,6 @@
   }
   
   @media (max-width: $med-break) {
-    padding-top: 0px;
-    padding-bottom: 118px;
-
     h3 {
       font-size: 16px;
     }
@@ -63,13 +60,6 @@
   @media (max-width: $sm-break) {
     top: 70px;
     width: calc(100vw - 60px);
-    h2 {
-      margin-top: 20px;
-    }
-  }
-
-  @media (max-width: $xs-break) {
-    padding-bottom: 40.5vw;
   }
 
   &.open {

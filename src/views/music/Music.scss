@@ -38,6 +38,10 @@
         margin: 0 8px;
       }
 
+      @media (max-width: $xs-break) {
+        margin: 0;
+      }
+
     }
 
     img {
@@ -47,10 +51,11 @@
       @media (max-width: $sm-break) {
         width: 28vw;
         height: 20vw;
+        margin: 0;
       }
       @media (max-width: $xs-break) {
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
       }
     }
 
