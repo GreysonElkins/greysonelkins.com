@@ -7,6 +7,10 @@
   left: 0;
   right: 0;
 
+  @media (max-width: $med-break) {
+    margin-top: 40px;
+  }
+
   .band {
     z-index: 0;
     position: relative;
@@ -29,7 +33,7 @@
       align-items: center;
       color: $accent-1;
       white-space: nowrap;
-      margin: 0 80px;
+      margin: 0 50px;
       span {
         margin: 0 8px;
       }
@@ -55,12 +59,17 @@
       box-sizing: border-box;
       display: flex;
       color: $white;
-      
+      transition: margin 400ms;
+
       .description {
-        margin: 4px 60px;
+        margin: 4px 0px;
 
         a {
           color: $accent-2;
+        }
+
+        @media (max-width: $sm-break) {
+          margin: 4px 20px;
         }
 
         @media (max-width: $xs-break) {

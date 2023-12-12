@@ -3,8 +3,15 @@
 .Feral {
   align-items: flex-end;
  
+  
+
   .body {
     flex-direction: row-reverse;
+    img {
+        margin-top: 10px;
+        margin-right: -30px;
+        margin-left: 10px;
+    }
   }
 
   &.open {

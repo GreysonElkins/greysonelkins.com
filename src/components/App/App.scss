@@ -23,14 +23,14 @@
       transition: padding 400ms;
 
       @media (max-width: $med-break) {
-        padding: 10px 200px;
+        padding: 10px 150px;
       }
 
       @media (max-width: $sm-break) {
-        padding: 10px 100px;
+        // padding: 10px 100px;
       }
 
-      @media (max-width: $xs-break) {
+      @media (max-width: $sm-break) {
         padding: 10px 20px;
       }
       
