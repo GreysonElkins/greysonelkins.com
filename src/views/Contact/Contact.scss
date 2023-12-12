@@ -3,10 +3,10 @@
 .Contact {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-  transition: top 400ms;
+  transition: top 200ms, padding 400ms !important;
   height: 100%;
   &.closed {
-    top: -1000vh;
+    top: -100vh;
   }
 
   &.open {
@@ -23,6 +23,7 @@
   align-items: flex-start;
   transition: padding 200ms;
   padding: 20px 120px;
+  width: 100%;
   
   h2 {
     color: $accent-1
@@ -59,21 +60,19 @@
   }
 
   @media (min-width: $lg-break) {
-    width: 600px;
-    // margin: 0 ;
     padding: 160px 168px;
-    left: calc((100vw - 936px)/2);
   }   
     
   @media (max-width: $med-break) {
-    padding: 0px 124px;
-    width: 496px;
-    left: calc((100vw - 744px)/2);
+    padding: 0px 70px;
+  }
+
+  @media (max-width: $sm-break) {
+    padding: 0px 40px;
   }
     
   @media (max-width: $xs-break) {
     background-color: rgba(225, 221, 208, 0);
-    width: 90vw;
     left: 0;
     padding: 5vw 5vw;
 
