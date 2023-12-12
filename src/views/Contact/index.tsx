@@ -73,8 +73,8 @@ const Contact: React.FC = () => {
   const open = isOnPage ? 'open' : 'closed'
 
   return (
-    <>
-      <form className={`Contact ${open}`} onSubmit={sendEmail}>
+    <section className={`Contact ${open}`}>
+      <form className="Contact-form" onSubmit={sendEmail}>
         <h2>Contact</h2>
         <div className="sender">
           <div>
@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
         <input disabled={sending} type="submit" value="send" />
         <Socials size="2x" />
       </form>
-    </>
+    </section>
   )
 }
 

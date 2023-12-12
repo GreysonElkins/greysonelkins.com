@@ -20,10 +20,9 @@ const App = () => (
     </Header>
     <main>
       <Home />
-      <Music />
       <Code />
-      {/* 
-    <Contact /> */}
+      <Music />
+      <Contact /> 
     </main>
   </div>
     </PlayerContext>

@@ -1,121 +1,121 @@
 @import 'variables.scss';
 
 .Contact {
-    position: absolute;
-    background-color: rgba(225, 221, 208, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 40vw;
-    height: 100vh;
-    padding: 120px 10vw;
-    // margin: 0 35vw;
-    left: 20vw;
-    transition: top 400ms, padding 200ms;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  transition: top 400ms;
+  height: 100%;
+  &.closed {
+    top: -1000vh;
+  }
+
+  &.open {
+    top: 0px;
+  }
+}
+
+.Contact-form {
+  box-sizing: border-box;
+  background-color: rgba(225, 221, 208, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: padding 200ms;
+  padding: 20px 120px;
+  
+  h2 {
+    color: $accent-1
+  }
+
+  label {
+    color: $white;
+    text-transform: lowercase;
+    margin-bottom: 5px;
+    font-family: 'Brexter';
+    span {
+      color: $accent-2;
+    }
+  }
+
+  textarea {
+    margin-bottom: 10px;
+    background-image: $white-tile;
+    border-radius: 5px;
+  }
+
+  input {
+    @include cta-1;
+    align-self: flex-end;
+    margin: 10px 0;
+    padding: 4px 8px;
+    font-size: 20px;
+    margin-right: 2px;
     
+    @media (max-width: $xs-break) {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+  }
+
+  @media (min-width: $lg-break) {
+    width: 600px;
+    // margin: 0 ;
+    padding: 160px 168px;
+    left: calc((100vw - 936px)/2);
+  }   
+    
+  @media (max-width: $med-break) {
+    padding: 0px 124px;
+    width: 496px;
+    left: calc((100vw - 744px)/2);
+  }
+    
+  @media (max-width: $xs-break) {
+    background-color: rgba(225, 221, 208, 0);
+    width: 90vw;
+    left: 0;
+    padding: 5vw 5vw;
+
     .Socials {
       align-self: center;
       margin-top: -43px;
       a {
-        color: $black;
+        color: rgba(225, 221, 208, 0.2);
       }
-      a:active {
-        color: $accent-1;
-      }
-      a:hover {
-        color: $accent-1;
+      @media (max-width: $xs-break) {
+        margin-top: -35px;
       }
     }
+  }
 
-    h2 {
-        color: $accent-1
-    }
-
-    label {
-        color: $white;
-        text-transform: lowercase;
-        margin-bottom: 5px;
-        font-family: 'Brexter';
-        span {
-            color: $accent-2;
-        }
-    }
+  .Socials {
+    align-self: center;
+    margin-top: -43px;
     
-    .sender { 
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        div {
-            width: 45%;
-            display: flex;
-            flex-direction: column;
-        }
+    a {
+      color: $black;
     }
-
-    textarea {
-        margin-bottom: 10px;
-        // width: 250px;
-        background-image: $white-tile;
-        border-radius: 5px;
+    a:active {
+      color: $accent-1;
     }
-
-    .message, .subject {
-        width: 98.5%;
+    a:hover {
+      color: $accent-1;
     }
+  }
 
-    input {
-        @include cta-1;
-        align-self: flex-end;
-        margin: 10px 0;
-        padding: 4px 8px;
-        font-size: 20px;
-        margin-right: 2px;
-        @media (max-width: $xs-break) {
-            font-size: 14px;
-            margin: 5px 0;
-        }
+  .sender { 
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    div {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
     }
-
-    &.closed {
-        top: -200vh
-    }
-
-    &.open {
-        top: 0px;
-
-        @media (min-width: $lg-break) {
-            top: 40px
-        }   
-    }
-
-    @media (min-width: $lg-break) {
-        width: 600px;
-        // margin: 0 ;
-        padding: 160px 168px;
-        left: calc((100vw - 936px)/2);
-    } 
+  }
     
-    @media (max-width: $med-break) {
-        padding: 0px 124px;
-        width: 496px;
-        left: calc((100vw - 744px)/2);
-    }
-    
-    @media (max-width: $xs-break) {
-        background-color: rgba(225, 221, 208, 0);
-        width: 90vw;
-        left: 0;
-        padding: 5vw 5vw;
-
-        .Socials {
-            align-self: center;
-            margin-top: -43px;
-            a {
-                color: rgba(225, 221, 208, 0.2);
-            }
-            @media (max-width: $xs-break) {
-                margin-top: -35px;
-            }
-        }
-    }
+  .message, .subject {
+    width: 98.5%;
+  }
 }
