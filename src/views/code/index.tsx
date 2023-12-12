@@ -16,8 +16,8 @@ const Code: React.FC = () => {
   const onPage = isOnPage ? 'open' : 'closed'
 
   return (
-    <>
-      <section className={`resume Card ${onPage}`}>
+    <section>
+      <div className={`resume Card ${onPage}`}>
         <h2>I'm <span>a Software Developer</span></h2>
         <h3>Lumen Technologies Inc.</h3>
         <h4>Senior Software Developer - Dec 2022 : Oct 2023</h4>
@@ -40,11 +40,11 @@ const Code: React.FC = () => {
             download full resume
           </button>
         </a>
-      </section>
-      <section className={`techBadges ${onPage}`}>
+      </div>
+      <div className={`techBadges ${onPage}`}>
         {renderTechBadges()}
-      </section>
-    </>
+      </div>
+    </section>
   ) 
 }
 

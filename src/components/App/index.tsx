@@ -21,8 +21,8 @@ const App = () => (
     <main>
       <Home />
       <Music />
-      {/* 
       <Code />
+      {/* 
     <Contact /> */}
     </main>
   </div>
