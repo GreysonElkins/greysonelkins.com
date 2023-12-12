@@ -11,16 +11,16 @@ const Home: React.FC = () => {
   const open = isOnPage ? "open" : "closed"
 
   return (
-    <>
+    <section>
       <img className={`lines ${open}`} src={lines} alt="colorful lines" />
       <div className={`Home ${open}`}>
-        <img className="banner" src={banner} alt="audio and computer equipment" />
-        <img className="motion" src={motion} alt="audio and computer equipment" />
-        <div className="content">
-          <h2>Software Developer && Audio Engineer</h2>
+        <div className="banner">
+          <img className="banner-drawing" src={banner} alt="audio and computer equipment" />
+          <img className="banner-motion" src={motion} alt="audio and computer equipment" />
         </div>
+        <h2>Software Developer <span>&&</span> Audio Engineer</h2>
       </div>
-    </>
+    </section>
   )
 }
 

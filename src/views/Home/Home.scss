@@ -1,79 +1,71 @@
 @import 'variables.scss';
 
 .Home {
-    position: relative;
-    overflow: hidden;
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     transition: width 400ms;
-    width: 100vw;
     margin: 0 auto;
-    &.closed {
-        width: 0vw;
-    }
+    width: 100%;
 
     h2 {
-        color: $accent-2;
-        text-align: center;
-        margin: auto -150px;
+      color: $accent-2;
+      text-align: center;
+      margin: 0;
+      width: 100%;
+      opacity: 1;
+      transition: opacity 100ms;
 
-        @media (max-width: $xs-break) {
-          text-align: left;
-          margin: auto 0px;
-          font-size: 20px;
-        }
+      @media (max-width: $xs-break) {
+        text-align: left;
+        font-size: 20px;
       }
-      
-      .content {
-        margin-top: -160px;
-        width:  calc(100% - 300px);
-        padding: 30px 150px;
-        @media (max-width: $xs-break) {
-          padding: 30px 20px;
-          width: calc(100% - 40px);
-        }
+    }
+
+    &.closed {
+      width: 0vw;
+
+      h2 {
+        opacity: 0;
+      }
     }
 }
 
 .banner {
-  position: relative;
-  width: 100vw;
-  margin: 150px auto;
-  z-index: 5;
-  transition: margin-top 400ms;
-
-  @media (max-width: $med-break) {
-    margin-top: 40px;
-  }
-}
-
-.motion, .lines {
-  position: absolute;
-  z-index: 0;
-  top: 150px;
-  left: 0;
   width: 100%;
+  height: min-content;
 
-  transition: top 400ms;
-
-  @media (max-width: $med-break) {
-    top: 40px;
+  &-drawing {
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+  }
+  
+  &-motion {
+    width: 100%;
+    inset: 0;
+    z-index: 0;
   }
 }
 
 .lines { 
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 29.5vh;
     z-index: -20;
-    
-    
-    transition: opacity 600ms;
+
     &.open {
       opacity: 0;
+      width: 0%;
     }
     
     &.closed {
-      // transition: opacity 0ms;
-      opacity: 1;
-      @media (max-width: 1010px) {
-        opacity: 0.3;
-      }
+      opacity: 0.3;
     }
 }
 
