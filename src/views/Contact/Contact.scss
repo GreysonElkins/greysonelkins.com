@@ -5,10 +5,13 @@
   padding-bottom: 0 !important;
   transition: top 200ms, padding 400ms !important;
   height: 100%;
+  display: flex;
+  align-items: center;
+  
   &.closed {
     top: -100vh;
   }
-
+  
   &.open {
     top: 0px;
   }
@@ -16,8 +19,9 @@
 
 .Contact-form {
   box-sizing: border-box;
+  border-radius: 10px;
   background-color: rgba(225, 221, 208, 0.1);
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -64,11 +68,11 @@
   }   
     
   @media (max-width: $med-break) {
-    padding: 0px 70px;
+    padding: 20px 70px;
   }
 
   @media (max-width: $sm-break) {
-    padding: 0px 40px;
+    padding: 20px 40px;
   }
     
   @media (max-width: $xs-break) {
