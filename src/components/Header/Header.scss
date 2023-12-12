@@ -15,28 +15,44 @@
   padding-bottom: 18px;
 
   @media (max-width: $med-break) {
-    // bottom: -1px;
+    padding-top: 10px;
     margin-bottom: 0;
     border-bottom: none;
     border-top: 1px solid $accent-1;
     align-items: flex-end;
   }
 
-  @media (max-width: $sm-break) {
-    align-items: center;
-  }
   
+  @media (max-width: 690px) {
+    flex-direction: column-reverse;
+    align-items: center;
 
-  @media (min-width: $xs-break) {
-    // flex-direction: column;
+    .Socials {
+      display: none;
+    }
+
+    .Controls {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+
+      .SpritePosition {
+        margin-top: -60px
+    // @media (max-width: 732px) {
+    // }
+
+    // @media (max-width: $xs-break) {
+    //   margin-top: -60px
+    // }
   }
- 
+  }
+
   @media (max-width: $xs-break) {
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
     height: 40.5vw;
     padding: 0;
-    align-items: flex-start;
+    // align-items: flex-start;
   }
 
   button { 
@@ -90,16 +106,6 @@
       display: None;
     }
   }
-
-  .SpritePosition {
-    @media (max-width: 732px) {
-      margin-top: -30px
-    }
-
-    @media (max-width: $xs-break) {
-      margin-top: -60px
-    }
-  }
 }
 
 
@@ -109,19 +115,17 @@
   left: 0;
   width: min-content;
   transition: top 400ms, left 400ms; 
-
+  margin-left: 15px;
+  
   @media (min-width: $med-break) {
     top: 10px;
     left: 20px;
   }
-
+  
   @media (max-width: $med-break) {
+    margin-bottom: -15px;
     bottom: 5px;
-    left: 20px;
-  }
-
-  @media (max-width: $sm-break) {
-    left: 5vw;
+    left: 0;
   }
 
   h1 {
