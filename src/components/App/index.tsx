@@ -10,22 +10,22 @@ import './App.scss'
 import Code from 'views/code';
 
 const App = () => (
+  <PlayerContext>
+  <ToastContainer 
+    theme='dark'
+    position="bottom-right"
+  />
   <div className="App">
-    <ToastContainer 
-      theme='dark'
-      position="bottom-right"
-    />
-    <PlayerContext>
-      <Header>
-      </Header>
-      <main>
-        {/* <Home />
-        <Code />
-        <Music />
-        <Contact /> */}
-      </main>
-    </PlayerContext>
+    <Header>
+    </Header>
+    <main>
+      {/* <Home />
+      <Code />
+      <Music />
+      <Contact /> */}
+    </main>
   </div>
+    </PlayerContext>
 )
 
 
