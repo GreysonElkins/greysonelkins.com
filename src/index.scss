@@ -1,19 +1,7 @@
 @import 'variables.scss';
 
-html, body {
-  overflow: hidden;
-  height: 100%;
-  width: 100%
-}
-
-html {
-  position: fixed;
-}
-
 body {
-  top: 0;
-  left: 0;
-  overflow: hidden;
+  height: 100%;
   background-image: $black-tile-2;
   margin: 0;
   padding: 0;

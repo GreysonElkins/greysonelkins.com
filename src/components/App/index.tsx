@@ -11,21 +11,21 @@ import Code from 'views/code';
 
 const App = () => (
   <PlayerContext>
-  <ToastContainer 
-    theme='dark'
-    position="bottom-right"
-  />
-  <div className="App">
-    <Header>
-    </Header>
-    <main>
-      <Home />
-      <Code />
-      <Music />
-      <Contact /> 
-    </main>
-  </div>
-    </PlayerContext>
+    <ToastContainer 
+      theme='dark'
+      position="bottom-right"
+    />
+    <div className="App">
+      <Header>
+      </Header>
+      <main>
+        <Home />
+        <Code />
+        <Music />
+        <Contact /> 
+      </main>
+    </div>
+  </PlayerContext>
 )
 
 
