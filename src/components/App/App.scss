@@ -18,6 +18,7 @@
     section {
       position: absolute;
       inset: 0;
+      overflow: hidden;
       overflow-y: scroll;
       padding: 10px 250px;
       transition: padding 400ms;
