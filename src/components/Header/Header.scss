@@ -1,0 +1,200 @@
+@import 'variables.scss';
+
+.Header { 
+  z-index: 30;
+  background-image: $black-tile;
+  position: absolute;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  width: 100vw;
+  height: 118px;
+  border-bottom: 1px solid $accent-1;
+  margin-bottom: 100px;
+  
+  @media (min-width: $med-break) {
+    top: 0;
+  }
+
+  @media (max-width: $med-break) {
+    bottom: -1px;
+    margin-bottom: 0;
+    border-bottom: none;
+    border-top: 1px solid $accent-1;
+    align-items: flex-end;
+  }
+
+  @media (max-width: $sm-break) {
+    align-items: center;
+  }
+  
+
+  @media (min-width: $xs-break) {
+    flex-direction: column;
+  }
+ 
+  @media (max-width: $xs-break) {
+    display: flex;
+    justify-content: center;
+    height: 40.5vw;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  button { 
+    @include cta-1;
+    margin-top: 8px;
+    padding: 6px 10px;
+    
+    @media (max-width: $med-break) {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+  }
+
+  a {
+    &.active {
+      button {
+        color: $black;
+        background: $accent-1;
+      }
+    }
+  }
+
+  nav, .Socials {
+    margin-right: 15px;
+  }
+
+  nav {
+    max-width: 45%;
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-bottom: 6px;
+
+    @media (max-width: $xs-break) {
+      padding: 0;
+      padding-top: 6px;
+      max-width: 100%;
+    }
+  }
+
+  .Socials {
+    margin-top: 16px;
+    @media (max-width: $xs-break) {
+      display: None;
+    }
+  }
+
+  .SpritePosition {
+    @media (max-width: 732px) {
+      margin-top: -30px
+    }
+
+    @media (max-width: $xs-break) {
+      margin-top: -60px
+    }
+  }
+}
+
+
+.Controls {
+  z-index: 35;
+  position: absolute;
+  left: 0;
+  width: min-content;
+  transition: top 400ms, left 400ms; 
+
+  @media (min-width: $med-break) {
+    top: 10px;
+    left: 20px;
+  }
+
+  @media (max-width: $med-break) {
+    bottom: 5px;
+    left: 20px;
+  }
+
+  @media (max-width: $sm-break) {
+    left: 5vw;
+  }
+
+  h1 {
+    position:absolute;
+    top: 0;
+    font-family: 'Yellowtail', cursive;
+    color: $accent-1;
+    margin: 0;
+
+    @media (max-width: $med-break) {  
+      font-size: 26px;
+    }
+
+    @media (max-width: $sm-break) {
+      font-size: 26px;
+    }
+    @media (max-width: $xs-break) {
+      font-size: 8vw;
+    }
+  }
+ 
+  #keys {
+    width: 350px;
+    @media (max-width: $med-break) {
+      width: 300px;
+    }
+    @media (max-width: $xs-break) {
+      width: 90vw;
+    }
+  }
+
+  #spacebar, #left, #right, #up, #down {
+    position: absolute;
+    background: none;
+    border: none;
+    height: 41%;
+    bottom: 9px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #left, #right, #up, #down {
+    width: 12.5%;
+  }
+
+  #down, #left, #spacebar, #right {
+    @media (max-width: $sm-break) {
+      bottom: 15px;
+    } 
+  } 
+
+  #up, #down {
+    left: 217px;
+    @media (max-width: $sm-break) {
+      left: 317px;
+    } 
+  }
+  
+  #spacebar {
+    width: 56.5%;
+    left: 5px;
+  }
+
+  #up {
+    bottom: 52px;
+    @media (max-width: $sm-break) {
+      bottom: 75px;
+    }
+  }
+
+  #left {
+    left: 59%;
+  }
+
+  #right {
+    left: 86%;
+  }
+}
