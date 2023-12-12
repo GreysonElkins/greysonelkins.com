@@ -6,8 +6,13 @@ html, body {
   width: 100%
 }
 
-body {
+html {
   position: fixed;
+}
+
+body {
+  top: 0;
+  left: 0;
   overflow: hidden;
   background-image: $black-tile-2;
   margin: 0;
